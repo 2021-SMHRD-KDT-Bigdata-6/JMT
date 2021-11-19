@@ -10,6 +10,7 @@
 @import url(css/font-awesome.min.css);
 @import url(css/audioplayer.css);
 @import url(css/one-music-icon.css);
+@import url(game1/lezhin.css);
 /* :: 3.0 Base CSS */
 * {
   margin: 0;
@@ -1726,21 +1727,97 @@ img {
 		font-size:30px;
 		}
 	
-.make-game #make-game-button{
-	position:absolute;
-	left:50%;
-	top:50%;
-	display:inline-block;
-	border: 2px solid black;
-	background-color:transparent;
-	text:25px;
-	width:250px;
-	height:60px;
-	transform:translate(-50%,-50%);
-}
-	.make-game #make-game-button button:hover{
-		background-color:#6e6e6e;
-	}
+
 /* ====== The End ====== */
+
+h1 {padding:5px 10px; text-shadow: 4px 4px 2px rgba(150, 150, 150, 1)}
+h3 {padding:5px 10px; margin-bottom:30px}
+.content-default,
+.content.in_game {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  left:15%;
+  width: 70%;
+  min-height:300px;
+}
+.content.in_game {padding: 10% 0}
+#btnGameStart {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+  padding: 8px 20px;
+  margin:0 auto;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#5bf079 50%,
+		#47de7c 50%,
+		#19b037 65%,
+		#2f8a21);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		color-stop(0.50, #5bf079),
+		color-stop(0.50, #47de7c),
+		color-stop(0.65, #19b037),
+		to(#2f8a21));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 1px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 5px rgba(16,161,96,0.6);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 5px rgba(16,161,96,0.6);
+	text-shadow:
+		0px -1px 3px rgba(255,255,255,0.8),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+
+.list_ideal {display:flex;justify-content:space-evenly}
+.list_ideal li {
+  width:30%;
+  max-width: 50%;
+  min-width: 50%;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  justify-content:space-evenly
+}
+
+.thumb>video{
+  width: 100%;
+  height: 100%;
+
+  
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  
+  
+}
+
+.list_ideal li a {display:block;width:100%}
+.list_ideal li a:hover img,
+.list_ideal li a:active img,
+.list_ideal li a.selected img {
+  -webkit-filter: grayscale(100%);
+  filter: gray;
+}
+.list_ideal li span {display:block;width:100%}
+.list_ideal li span img {width:100%}
 
 /*# sourceMappingURL=style.css.map */
