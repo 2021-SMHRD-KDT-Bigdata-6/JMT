@@ -17,6 +17,7 @@ public class ResultVO {
 	private String title;
 	private String t_tournament_name;
 	private int count;
+	private String tournament_file;
 
 	public ResultVO() {
 
@@ -50,6 +51,7 @@ public class ResultVO {
 		this.isRight = isRight;
 		this.contentId = contentId;
 		this.isWin = isWin;
+		
 	}
 
 	public int getResultId() {
@@ -187,5 +189,15 @@ public class ResultVO {
 	public void setCount(int count) {
 		this.count = count;
 	}
+
+	public String getTournament_file() {
+		return tournament_file;
+	}
+
+	public void setTournament_file(String tournament_file) {
+		this.tournament_file = tournament_file;
+	}
+	
+	
 
 }

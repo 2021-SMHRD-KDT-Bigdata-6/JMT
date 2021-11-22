@@ -19,7 +19,12 @@ public class ResultDAO {
 		try {
 			// 우승작썸네일(t), 토너먼트제목(t), 참여날짜(r), 우승작id(t), 토너먼트id(r)
 
-			String sql = "select t.tournament_file, t.tournament_name, r.game_date, r.content_id, r.tournament_id from tournaments t, results s where t.tournament_id = r.tournament_id and r.member_id = ?";
+			String sql = "select r.tournament_file, t.tournament_name, r.game_date, r.content_id, t.tournament_id "
+					+ "from tournaments t, results r"
+					+ "where t.tournament_id = r.tournament_id "
+					+ "and r.member_id = ? "  //?
+					+ "and r.stage = 2 "
+					+ "and r.iswin = 1";
 			psmt = j.conn.prepareStatement(sql);
 			psmt.setString(1, member_id);
 			rs = psmt.executeQuery();
@@ -48,7 +53,10 @@ public class ResultDAO {
 		ArrayList<ResultVO> resultsList = new ArrayList<ResultVO>();
 
 		try {
-			String sql = "select c.c_thumbnail, c.title, count(r.iswin) cnt, c.content_id from contents c, results r group by c.c_thumbnail, c.title, c.content_id where c.content_id = r.content_id and tournament_id = ? order by cnt desc";
+			String sql = "select c.c_thumbnail, c.title, count(r.iswin) cnt, c.content_id "
+					+ "from contents c, results r "
+					+ "group by c.c_thumbnail, c.title, c.content_id "
+					+"where c.content_id = r.content_id and tournament_id = ? order by cnt desc";
 			psmt = j.conn.prepareStatement(sql);
 			psmt.setString(1, tournament_id);
 			rs = psmt.executeQuery();
@@ -67,14 +75,14 @@ public class ResultDAO {
 	}
 
 	// 3. 한번의 선택이 있을 때마다 토너먼트 참여 결과 저장하기 - 
-	public void updateResult(String t_id, String m_id, String stage, String jo, String isright, String c_id, String iswin) {
+	public void updateResult(String t_id, String m_id, String stage, String jo, String isright, String c_id, String iswin, String tournament_file) {
 		j.conn();
 		//자동 : r_id, g_date
 		//변하지 않는 값 : t_id, m_id 
-		//변하는 값 : stage, jo, isright, c_id, iswin
+		//변하는 값 : stage, jo, isright, c_id, iswin, tournament_file
 		
 		try {
-			String sql = "insert into results values(results_seq.nextval, ?, ?, sysdate, ?, ?, ?, ?, ?)";
+			String sql = "insert into results values(results_seq.nextval, ?, ?, sysdate, ?, ?, ?, ?, ?, ?)";
 			psmt = j.conn.prepareStatement(sql);
 			psmt.setString(1, t_id);
 			psmt.setString(2, m_id);
@@ -83,6 +91,7 @@ public class ResultDAO {
 			psmt.setString(5, isright);
 			psmt.setString(6, c_id);
 			psmt.setString(7, iswin);
+			psmt.setString(8, tournament_file);
 			
 			psmt.executeUpdate();
 			
