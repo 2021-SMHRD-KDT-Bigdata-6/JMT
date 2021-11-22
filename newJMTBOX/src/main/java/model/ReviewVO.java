@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ReviewVO {
 	private int reviewId;
-	private String memberId;
+	private int memberId;
 	private int contentId;
 	private String cTumbnail;
 	private String review;
@@ -12,12 +12,13 @@ public class ReviewVO {
 	private int rLike;
 	private int rShare;
 	private String tag;
+	private int review_done;
 	
 	
 	public ReviewVO() {
 		super();
 	}
-	public ReviewVO(int reviewId, String memberId, int contentId, String cTumbnail, String review, Date reviewDate,
+	public ReviewVO(int reviewId, int memberId, int contentId, String cTumbnail, String review, Date reviewDate,
 			int rLike, int rShare, String tag) {
 		super();
 		this.reviewId = reviewId;
@@ -36,10 +37,10 @@ public class ReviewVO {
 	public void setReviewId(int reviewId) {
 		this.reviewId = reviewId;
 	}
-	public String getMemberId() {
+	public int getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(String memberId) {
+	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
 	public int getContentId() {
@@ -83,6 +84,12 @@ public class ReviewVO {
 	}
 	public void setTag(String tag) {
 		this.tag = tag;
+	}
+	public int getReview_done() {
+		return review_done;
+	}
+	public void setReview_done(int review_done) {
+		this.review_done = review_done;
 	}
 	
 	

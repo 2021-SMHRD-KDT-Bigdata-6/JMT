@@ -111,14 +111,28 @@
    	<div class="content-default" id="content">
      	<button id="btnGameStart" onclick="start()">Game Start</button>
    	</div>
+   		 <footer class="footer soff" id="footer">
+        <button id="cancel" onclick="lezhin.Event.clickCancel()">취소</button>
+        <button id="prev" onclick="lezhin.Event.clickPrev()">이전</button>
     
-    <footer></footer>
-    <script src="lezhin.js" async defer></script>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="lezhinGame.js" async defer></script>
 
     <script>
       function start() {
-        lezhin.start()
-        }
+    	  $.ajax({
+    		  url : 'http://localhost:8082/ddff/newFile',
+    		  dataType : 'json',
+    		  success : function(result){
+    			  console.log(result);
+    			  lezhin.start(result);
+    		  }, error : function(){
+    			  alert('실패!')
+    		  }
+    	  })
+        
+      }
       
     </script>
    

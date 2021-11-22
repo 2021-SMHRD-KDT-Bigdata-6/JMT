@@ -10,7 +10,7 @@ public class ContentDAO {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
-	// 검색 조건에 맞는 모든 콘텐츠 기본 정보 보기
+	// 1.검색 조건에 맞는 모든 콘텐츠 기본 정보 보기
 	// content_id, title, c_thumbnail, c_like, tournament_point
 	public ArrayList<ContentVO> showContentsByFilters(String where) {
 		j.conn();
@@ -44,7 +44,7 @@ public class ContentDAO {
 		return ContentList;
 	}
 
-	// 최근 한달 내 작품 보기
+	// 2.최근 한달 내 작품 보기
 	// content_id, title, c_thumbnail, c_like, tournament_point
 	public ArrayList<ContentVO> showLatestContents() {
 		j.conn();
@@ -76,7 +76,7 @@ public class ContentDAO {
 		return ContentList;
 	}
 
-	// 인기 작품(클릭 수 높은) 36개 보기
+	// 3.인기 작품(클릭 수 높은) 36개 보기
 	// content_id, title, c_thumbnail, c_like, tournament_point
 	public ArrayList<ContentVO> showHotContents() {
 		j.conn();
@@ -110,7 +110,7 @@ public class ContentDAO {
 		return ContentList;
 	}
 	
-	//작품 상세보기 
+	//4.작품 상세보기 
 	public ContentVO showContentInfo(String content_id) {
 		
 		j.conn();
@@ -134,11 +134,30 @@ public class ContentDAO {
 	}
 	
 	
+	//5.랜덤토너먼트 만들기
+	public ArrayList<ContentVO> contents(String title, String c_thumbnail) {
+		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
+		ContentVO vo = null;
+		try {
+			j.conn();
+			String sql = "SELECT title, c_thumbnail from (select title, genre, c_thumbnail from contents ORDER BY dbms_random.value) where rownum <= 20 and genre LIKE('드라마%') ";
+			psmt = j.conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				title = rs.getString("title");
+				c_thumbnail = rs.getString("c_thumbnail");
+				
+				vo = new ContentVO(title, c_thumbnail);
+				al.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			j.close();
+		}
+		return al;
+	}
 	
- 
-	/*
-	
-	*/
 	
 	
 }

@@ -28,6 +28,11 @@ public class ContentVO {
 		super();
 	}
 
+	public ContentVO(String title, String c_thumbnail) {
+		this.title = title;
+		this.c_thumbnail = c_thumbnail;
+	}
+	
 	public ContentVO(int content_id, String title, String genre, Date release, String platform, String c_thumbnail,
 			String director, String actor, String youtube, String runningtime, int c_view, int c_like, int c_share,
 			int tournament_point, String tag, String story) {
