@@ -128,8 +128,8 @@ if(!window['lezhin']) {
         this.setContent();
       },
       setRoundTitle() {
-        if(_O.Vars.curRound > 1) document.getElementById('roundTitle').innerText = `${_O.Vars.curRound}강 선택`;
-        else document.getElementById('roundTitle').innerText = `축하합니다. 최종 이상형이 선정되었습니다.`;
+        if(_O.Vars.curRound > 1) document.getElementById('roundTitle').innerText = `Round of ${_O.Vars.curRound}`;
+        else document.getElementById('roundTitle').innerText = `Your Choice !`;
       },
       setItem() {
         const s = _O.Html.getItem();
@@ -139,16 +139,33 @@ if(!window['lezhin']) {
       },
       getItem() {
         let s = '', i = _O.Vars.curStage * 2, length = i + (_O.Vars.curRound > 1 ? 2 : _O.Vars.curRound);
-        for(i; i < length && length <= _O.Vars.curRound; i++) {
+        
+		for(i; i < length && length <= _O.Vars.curRound; i++) {
+			let a=0;
           s += `
           <li>
             <a class="item" id="item_${i}" href="javascript:void(0);" onclick="lezhin.Event.clickItem(this);">
               <span class="thumb"><video src="${_O.Vars.gameHistory[_O.Vars.curRound.toString()][i]['videoSrc']}" alt="명대사" controls></span>
-              <span class="tit">이름: ${_O.Vars.gameHistory[_O.Vars.curRound.toString()][i]['name']}</span>
+              <span class="tit">${_O.Vars.gameHistory[_O.Vars.curRound.toString()][i]['name']}</span>
         
              </a>
           </li>
-          `;
+          `
+		if(lezhin[i]%2 === 0) {
+            s += `
+            <li id="history">
+              <a class="modal final" id="modal" href="javascript:void(0);"></a>
+            </li>
+            `;
+          }
+			/*if(_0.Vars.curRound%2==1){
+			s+=	`
+				<li>
+				<a class="item-vs">VS</a>
+				</li>
+				`
+			
+			};*/
         }
         return s;
       },

@@ -1,6 +1,10 @@
 /* [Master Stylesheet - v1.0] */
 /* :: 1.0 Import Fonts */
 @import url("https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,600,600i,700,700i");
+
+/*루리 웹폰트 추가함 Spartan*/
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@200&display=swap');
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 /* :: 2.0 Import All CSS */
 @import url(css/bootstrap.min.css);
 @import url(css/classy-nav.css);
@@ -1698,18 +1702,24 @@ img {
 /* 검색창 추가 */
 .search-container {
 	padding-top: 0px;
+	margin-bottom:150px;
 }
 	.search-title{
 	font-size: 35px;
 	font-weight:900;
 	text-align: center;
 	color:#000000;}
-	.search-input{
-		position:relative;
-		
-		left:20%;
-		width:60%;
-		
+	
+	.search-box{
+        position:relative;
+        text-align: center;
+        width:60%;
+        margin: 0 auto;
+	
+	}
+		.search-input{
+		width:100%;
+		text-align:center;
 		padding: 30px 30px 20px;
 		margin-top: 25px;
 		background-color: transparent;
@@ -1720,28 +1730,123 @@ img {
         background-color: transparent;
         border-radius:50px;
         border: 1.5px solid #575756;
-        
+        float:left;
+        z-index:1;
 	}
 		.search-input::placeholder{
-		text-algin:center;
+		text-align:center;
 		font-size:30px;
+		z-index:2;
 		}
+	
+.search-container .search-box .searchbtn{
+        position:absolute;
+		top:40px;
+        width:50px;
+		left:94%;
+		height:100%;
+		border:0px ;
+		background-color:transparent;
+        z-index: 3;
+	}
+            .btn-img{
+                max-width: 100%;
+            }
 	
 
 /* ====== The End ====== */
 
+
+/* == 루리명은 게임버튼 수정 ==*/
+
+.section-padding-100 .button-container{
+	width:fit-content;
+	margin:auto;
+	
+}
+
+.section-padding-100 .button-container .make-button{
+  background:rgb(31, 31, 31);
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+  display:block;
+}
+.section-padding-100 .button-container .make-button:hover{
+  background: transparent;
+  color:black;
+}
+.section-padding-100 .button-container .make-button:before,.make-button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background:black;
+  transition:400ms ease all;
+}
+.section-padding-100 .button-container .make-button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.section-padding-100 .button-container .make-button:hover:before,.section-padding-100 .button-container .make-button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+	 
+
+
+/* == 루리명은 게임버튼 수정 ==*/
+
+
+.rountTitle-container{
+	border:1px;
+}
 h1 {padding:5px 10px; text-shadow: 4px 4px 2px rgba(150, 150, 150, 1)}
-h3 {padding:5px 10px; margin-bottom:30px}
-.content-default,
-.content.in_game {
+h3 {padding:5px 10px; 
+	margin-bottom:12px;
+	margin-top:67px;
+	text-align:center;
+	font-family:'Spartan', sans-serif;
+	height: 33.33%;
+	width: 100%; 
+  	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	line-height:50px;
+  	height:50px;
+  	cursor:pointer;
+  	z-index:1;
+  	}
+
+.content-default {
   display:flex;
   justify-content:center;
   align-items:center;
-  left:15%;
-  width: 70%;
+  margin-left:10%;
+  width: 80%;
   min-height:300px;
 }
-.content.in_game {padding: 10% 0}
+.content.in_game {
+	display:flex;
+ 	 justify-content:center;
+ 	 align-items:center;
+  	margin-left:10%;
+  	width: 80%;
+  	min-height:300px;
+	padding: 3% 0;
+	padding-bottom:20%;}
+	
 #btnGameStart {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
@@ -1779,7 +1884,10 @@ h3 {padding:5px 10px; margin-bottom:30px}
 		0px 1px 0px rgba(255,255,255,0.3);
 }
 
-.list_ideal {display:flex;justify-content:space-evenly}
+.list_ideal {
+	display:flex;
+	justify-content:space-evenly;
+	width:100%;}
 .list_ideal li {
   width:30%;
   max-width: 50%;
@@ -1792,7 +1900,6 @@ h3 {padding:5px 10px; margin-bottom:30px}
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
   justify-content:space-evenly
 }
@@ -1810,14 +1917,21 @@ h3 {padding:5px 10px; margin-bottom:30px}
   
 }
 
-.list_ideal li a {display:block;width:100%}
+.list_ideal li a {
+	display:block;
+	width:100%;
+text-align:center;}
 .list_ideal li a:hover img,
 .list_ideal li a:active img,
 .list_ideal li a.selected img {
   -webkit-filter: grayscale(100%);
   filter: gray;
 }
-.list_ideal li span {display:block;width:100%}
+.list_ideal li span {
+	display:block;
+	width:100%;
+	font-size:20px;
+	font-style:'nanumsquare';}
 .list_ideal li span img {width:100%}
 
 /*# sourceMappingURL=style.css.map */
