@@ -42,7 +42,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.html" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -139,8 +139,8 @@
 				<div class="search-box">
 					<!-- 검색 name값을 content_id로 잡아야하나?.. -->
 					<input class="search-input" type="text" placeholder="Search"
-						name="sch">
-					<button class="searchbtn" onClick="location.href='movieDetail.jsp'">
+						name="search">
+					<button class="searchbtn" name = "click" onClick="location.href='movieDetail.jsp'">
 						<img class="btn-img" src="./img/bg-img/btn-img.png">
 					</button>
 				</div>
@@ -992,6 +992,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script>
+    	const Searching = Search.prototype;
+    	
+    	function Search(){
+    		this.keyword = document.querySelector('input[name = "search"]');
+    		
+    	}
+    </script>
 </body>
 
 </html>
