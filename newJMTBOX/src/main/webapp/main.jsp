@@ -46,7 +46,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
+                        <a href="main.jsp.html" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -64,9 +64,9 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="event.html">Game</a></li>
-                                    <li><a href="event.html">Search</a></li>
+                                    <li><a href="main.jsp">Home</a></li>
+                                    <li><a href="tournament.jsp">Game</a></li>
+                                    <li><a href="search.jsp">Search</a></li>
                                     <li><a href="myPage.jsp">My</a></li>
                                 </ul>
 

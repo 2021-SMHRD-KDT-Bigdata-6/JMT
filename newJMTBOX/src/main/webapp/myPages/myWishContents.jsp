@@ -20,22 +20,23 @@
 <!-- Stylesheet -->
 <link rel="stylesheet" href="../style.css">
 <style>
-.row{
+.row {
 	display: flex;
-  	justify-content: center;}
+	justify-content: center;
+}
 
-	.single-album{
-	width : 20% !important;
-	height : 40% !important;
-	margin-right : 2% !important;
-	}
+.single-album {
+	width: 20% !important;
+	height: 40% !important;
+	margin-right: 2% !important;
+}
 </style>
 
 </head>
 <body>
 <%
 MemberVO vo = (MemberVO)session.getAttribute("member");
-String id = (String) session.getAttribute("member");
+
 %>
 	<section class="latest-albums-area section-padding-100-end">
 		<div class="container">
@@ -45,48 +46,17 @@ String id = (String) session.getAttribute("member");
 						<p>What's new?</p>
 
 						<h2>
-							<%
-							if (vo == null) {
-							%>
-							로그인 후 이용가능합니다.
-							<%
-							} else {
-							%>
 							<%=vo.getNick()%>님의 WISH CONTENTS
-							<%
-							}
-							%>
 						</h2>
 					</div>
 				</div>
 			</div>
 
-
 			<div class="row">
-				<!-- List 1 -->
-				<div class="single-album">
-					<div class="single-album-container">
-						<div class="img-center">
-							<img src="../img/bg-img/a1.jpg" alt="">
-						</div>
-					</div>
-					<div class="album-info">
-						<a href="#">
-							<h5>The Cure</h5>
-						</a>
-						<p>Second Song</p>
-					</div>
-				</div>
 
-
-
-
-
-
+				
 
 			</div>
-
-
 		</div>
 		</div>
 	</section>
@@ -94,19 +64,36 @@ String id = (String) session.getAttribute("member");
 
 	<!-- ##### All Javascript Script ##### -->
 	<!-- jQuery-2.2.4 js -->
-	<script src="js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="../js/jquery/jquery-3.6.0.js"></script>
 	<!-- Popper js -->
-	<script src="js/bootstrap/popper.min.js"></script>
+	<script src="../js/bootstrap/popper.min.js"></script>
 	<!-- Bootstrap js -->
-	<script src="js/bootstrap/bootstrap.min.js"></script>
+	<script src="../js/bootstrap/bootstrap.min.js"></script>
 	<!-- All Plugins js -->
-	<script src="js/plugins/plugins.js"></script>
+	<script src="../js/plugins/plugins.js"></script>
 	<!-- Active js -->
-	<script src="js/active.js"></script>
+	<script src="../js/active.js"></script>
 	<script>
-		let m_id = 'jbmyou@naver.com'
+	<세션>
+	
+	
+	let content = '\
+		<div class="single-album">\
+			<div class="single-album-container">\
+				<div class="img-center">\
+					<img src="../img/bg-img/a1.jpg" alt="">\
+				</div>\
+			</div>\
+			<div class="album-info">\
+				<a href="#">\
+					<h5>The Cure</h5>\
+				</a>\
+				<p>Second Song</p>\
+			</div>\
+		</div>'
 		
-		
+	
+		$('.row').append(content);
 	
 	</script>
 
