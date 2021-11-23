@@ -140,7 +140,7 @@ public class ContentDAO {
 		ContentVO vo = null;
 		try {
 			j.conn();
-			String sql = "SELECT title, c_thumbnail from (select title, genre, c_thumbnail from contents ORDER BY dbms_random.value) where rownum <= 20 and genre LIKE('드라마%') ";
+			String sql = "SELECT * from ( select * from contents ORDER BY dbms_random.value ) where rownum <=100 and content_id in ('3761','3621','3064', '2973', '3571', '3241', '2970', '2922', '3528', '3458', '3845', '3517', '3169', '3762', '3573', '3169')";
 			psmt = j.conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
