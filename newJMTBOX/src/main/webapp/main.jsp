@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="model.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <!-- push -->
@@ -22,6 +23,9 @@
 </head>
 
 <body>
+<%
+MemberVO vo = (MemberVO)session.getAttribute("member");
+%>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="lds-ellipsis">
@@ -42,7 +46,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
+                        <a href="main.jsp.html" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -60,16 +64,24 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="event.html">Game</a></li>
-                                    <li><a href="event.html">Search</a></li>
+                                    <li><a href="main.jsp">Home</a></li>
+                                    <li><a href="tournament.jsp">Game</a></li>
+                                    <li><a href="search.jsp">Search</a></li>
+                                    <%if(vo!=null){ %>
+                                    <li><a href="myPages/myPage.jsp">My</a></li>
+                                    <%} %>
                                 </ul>
 
                                 <!-- Login/Register & Cart Button -->
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
+                                    
                                     <div class="login-register-btn mr-50">
-                                        <a href="login.html" id="loginBtn">Login / Register</a>
+                                    <%if(vo==null){ %>
+                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
+                                        <%}else{%>
+                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+                                        <% } %>
                                     </div>
 
                                     <!-- Cart Button -->
@@ -88,7 +100,7 @@
     </header>
     <!-- ##### Header Area End ##### -->
 
-    <!-- ##### MainBanner 1)±¤°í 2)´ÜÀÏÃßÃµ ##### -->
+    <!-- ##### MainBanner 1)ê´‘ê³  2)ë‹¨ì¼ì¶”ì²œ ##### -->
     <section class="hero-area">
         <div class="hero-slides owl-carousel">
             <!-- Single Hero Slide -->
@@ -130,14 +142,14 @@
     </section>
     
     
-    <!-- °Ë»öÃ¢ Start -->
+    <!-- ê²€ìƒ‰ì°½ Start -->
     <section class ="section-padding-100">
 
 		<div class="search-container">
 			<p class="search-title">Search Box</p>
 			<form action="movieDetail.jsp">
 				<div class="search-box">
-					<!-- °Ë»ö name°ªÀ» content_id·Î Àâ¾Æ¾ßÇÏ³ª?.. -->
+					<!-- ê²€ìƒ‰ nameê°’ì„ content_idë¡œ ìž¡ì•„ì•¼í•˜ë‚˜?.. -->
 					<input class="search-input" type="text" placeholder="Search"
 						name="search">
 					<button class="searchbtn" name = "click" onClick="location.href='movieDetail.jsp'">
@@ -151,13 +163,13 @@
 	</section>
     
     
-    <!-- °Ë»öÃ¢ End -->
+    <!-- ê²€ìƒ‰ì°½ End -->
     
     
     
 
     <!-- ##### Latest Albums Area1 Start ##### -->
-    <!-- ##### ¿ùµåÄÅ ¸ñ·Ï  ##### -->
+    <!-- ##### ì›”ë“œì»µ ëª©ë¡  ##### -->
     
     <section class="latest-albums-area section-padding-100">
         <div class="container">
@@ -406,12 +418,12 @@
         </div>
     </section>
     
-    <!-- ³ª¿­ list Ãß°¡ÇÏ°í ½ÍÀ¸¸é lastest Albums Area1 End ¼½¼Ç Ãß°¡ÇÏ±â! -->
-    <!-- ##### ¿ùµåÄÅ ¸ñ·Ï  ##### -->
+    <!-- ë‚˜ì—´ list ì¶”ê°€í•˜ê³  ì‹¶ìœ¼ë©´ lastest Albums Area1 End ì„¹ì…˜ ì¶”ê°€í•˜ê¸°! -->
+    <!-- ##### ì›”ë“œì»µ ëª©ë¡  ##### -->
     <!-- ##### Latest Albums Area1 End ##### -->
 
     <!-- ##### 22 Start ##### -->
-    <!-- #####  ÀÎ±â ÄÁÅÙÃ÷ hot Contents  ##### -->
+    <!-- #####  ì¸ê¸° ì»¨í…ì¸  hot Contents  ##### -->
     
     <section class="latest-albums-area section-padding-100">
         <div class="container">
@@ -660,12 +672,12 @@
         </div>
     </section>
     
-    <!-- ³ª¿­ list Ãß°¡ÇÏ°í ½ÍÀ¸¸é lastest Albums Area1 End ¼½¼Ç Ãß°¡ÇÏ±â! -->
-    <!-- ##### ÀÎ±â ÄÁÅÙÃ÷ hot Contents  ##### -->
+    <!-- ë‚˜ì—´ list ì¶”ê°€í•˜ê³  ì‹¶ìœ¼ë©´ lastest Albums Area1 End ì„¹ì…˜ ì¶”ê°€í•˜ê¸°! -->
+    <!-- ##### ì¸ê¸° ì»¨í…ì¸  hot Contents  ##### -->
     <!-- ##### Latest Albums Area1 End ##### -->
    	
    	 <!-- ##### 33 Start ##### -->
-    <!-- #####  »õ·Î¿î ÄÁÅÙÃ÷ new Contents  ##### -->
+    <!-- #####  ìƒˆë¡œìš´ ì»¨í…ì¸  new Contents  ##### -->
     
     <section class="latest-albums-area section-padding-100-end">
         <div class="container">
@@ -914,13 +926,13 @@
         </div>
     </section>
     
-    <!-- ³ª¿­ list Ãß°¡ÇÏ°í ½ÍÀ¸¸é lastest Albums Area1 End ¼½¼Ç Ãß°¡ÇÏ±â! -->
-    <!-- ##### »õ·Î¿î ÄÁÅÙÃ÷ new contents  ##### -->
+    <!-- ë‚˜ì—´ list ì¶”ê°€í•˜ê³  ì‹¶ìœ¼ë©´ lastest Albums Area1 End ì„¹ì…˜ ì¶”ê°€í•˜ê¸°! -->
+    <!-- ##### ìƒˆë¡œìš´ ì»¨í…ì¸  new contents  ##### -->
     <!-- ##### Latest Albums Area1 End ##### -->
    	
    
     <!-- ##### Featured Artist Area2 Start ##### -->
-    <!-- ´ÚÄ¡°í ÀÌ°Å³ªºÁ! -->
+    <!-- ë‹¥ì¹˜ê³  ì´ê±°ë‚˜ë´! -->
     <section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url(img/bg-img/bg-4.jpg);">
         <div class="container">
             <div class="row align-items-end">
@@ -933,8 +945,8 @@
                     <div class="featured-artist-content">
                         <!-- Section Heading -->
                         <div class="section-heading white text-left mb-30">
-                            <p>See what¡¯s new</p>
-                            <h2>Buy What¡¯s New</h2>
+                            <p>See whatâ€™s new</p>
+                            <h2>Buy Whatâ€™s New</h2>
                         </div>
                         <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
                         <div class="song-play-area">

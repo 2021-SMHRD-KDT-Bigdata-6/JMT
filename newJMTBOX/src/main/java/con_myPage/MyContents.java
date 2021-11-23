@@ -1,6 +1,7 @@
-package con_member;
+package con_myPage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,31 +10,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.MemberDAO;
-import model.MemberVO;
+import model.ContentVO;
+import model.MyConentDAO;
 
-@WebServlet("/Login.do")
-public class Login extends HttpServlet {
+@WebServlet("/MyContents.do")
+public class MyContents extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String member_id = request.getParameter("member_id");
+		String which = request.getParameter("which");
 		
-		MemberDAO dao = new MemberDAO();
+		String which_content_id = which+"content_id";
 		
-		MemberVO vo = dao.login(id, pw);
+		MyConentDAO dao = new MyConentDAO();
+		ArrayList<ContentVO> myWish =  dao.showMyContents(which_content_id, member_id);
 		
-		if(vo!=null) {
+		if(myWish!=null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("member", vo);
-			response.sendRedirect("main.jsp");
-		}else {
-			response.sendRedirect("login.jsp");
+			session.setAttribute("myContents", myWish);
 		}
+		response.sendRedirect("my"+which+"Content.jsp");
 		
 	}
 
