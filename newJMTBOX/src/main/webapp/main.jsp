@@ -68,7 +68,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                     <li><a href="tournament.jsp">Game</a></li>
                                     <li><a href="search.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
-                                    <li><a href="myPage.jsp">My</a></li>
+                                    <li><a href="myPages/myPage.jsp">My</a></li>
                                     <%} %>
                                 </ul>
 
