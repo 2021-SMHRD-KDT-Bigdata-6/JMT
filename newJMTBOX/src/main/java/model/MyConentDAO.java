@@ -11,6 +11,7 @@ public class MyConentDAO {
 	private ResultSet rs;
 	
 	//1. myContents보기(wish, seen, like, share 에 따라)
+	// 배열의 타입이 mycontent가 아니라 content임에 주의
 	public ArrayList<ContentVO> showMyContents(String which_content_id, String member_id) {
 		j.conn();
 		ContentVO vo = null;

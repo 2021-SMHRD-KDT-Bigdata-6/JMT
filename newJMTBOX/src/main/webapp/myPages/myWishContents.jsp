@@ -1,3 +1,7 @@
+<%@page import="java.util.Arrays"%>
+<%@page import="model.MyConentDAO"%>
+<%@page import="model.ContentVO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -34,10 +38,18 @@
 
 </head>
 <body>
-<%
-MemberVO vo = (MemberVO)session.getAttribute("member");
-
-%>
+	<%
+	MemberVO vo = (MemberVO) session.getAttribute("member");
+	MyConentDAO dao = new MyConentDAO();
+	ArrayList<ContentVO> list =null;
+	list=dao.showMyContents("wish_content_id", vo.getId());
+	System.out.print("test"+list);
+	
+	if (list == null) {
+		out.print("<p>찜한 작품이 없습니다.</p>");
+	} else {
+	%>
+	
 	<section class="latest-albums-area section-padding-100-end">
 		<div class="container">
 			<div class="row">
@@ -53,12 +65,31 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 			</div>
 
 			<div class="row">
+			<%
+			for(ContentVO i : list){%>
+				<div class="single-album">
+					<div class="single-album-container">
+						<div class="img-center">
+							<img src="<%=i.getC_thumbnail() %>" alt="">
+						</div>
+					</div>
+					<div class="album-info">
+						<a href="#">
+							<h5>The Cure</h5>
+						</a>
+						<p>Second Song</p>
+					</div>
+				</div>
 
-				
+
+				} %>
+
 
 			</div>
 		</div>
-		</div>
+		<%
+		}
+		%>
 	</section>
 
 
@@ -74,27 +105,38 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 	<!-- Active js -->
 	<script src="../js/active.js"></script>
 	<script>
-	<세션>
-	
-	
-	let content = '\
-		<div class="single-album">\
-			<div class="single-album-container">\
-				<div class="img-center">\
-					<img src="../img/bg-img/a1.jpg" alt="">\
-				</div>\
-			</div>\
-			<div class="album-info">\
-				<a href="#">\
-					<h5>The Cure</h5>\
-				</a>\
-				<p>Second Song</p>\
-			</div>\
-		</div>'
+		//1.c.content_id, 2.c.title, 3.c.c_thumbnail, 4.c.c_like, 
+		//5.c.tournament_point, 6.m.my_date, 7.m.mycontent_id
+
+		/* 	
+		 <c:forEach var="i" items="${myWish}">
+		 <img src="${i.img}" />
+		 <img src="${i.img2}" />
+		 </c:forEach>
 		
-	
-		$('.row').append(content);
-	
+		 $.ajax(){
+		
+		 }
+		
+		
+		 let content = '\
+		 <div class="single-album">\
+		 <div class="single-album-container">\
+		 <div class="img-center">\
+		 <img src="../img/bg-img/a1.jpg" alt="">\
+		 </div>\
+		 </div>\
+		 <div class="album-info">\
+		 <a href="#">\
+		 <h5>The Cure</h5>\
+		 </a>\
+		 <p>Second Song</p>\
+		 </div>\
+		 </div>'
+		
+		
+		 $('.row').append(content);
+		 */
 	</script>
 
 </body>

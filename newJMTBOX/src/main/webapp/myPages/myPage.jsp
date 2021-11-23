@@ -10,9 +10,9 @@
 <body>
 	<%
 	MemberVO vo = (MemberVO)session.getAttribute("member");
-	vo.getId();
+	out.print(vo.getId());
 	%>
-	<a href='myWishContents.jsp?id=<%=vo.getId()%>&which=Wish'>내가 찜한 작품</a>
+	<a href='myWishContents.jsp'>내가 찜한 작품</a>
 	
 	<script src = '../js/jquery/jquery-3.6.0.js'></script>
 	<script>

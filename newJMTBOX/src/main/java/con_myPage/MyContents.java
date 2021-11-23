@@ -1,6 +1,7 @@
 package con_myPage;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -24,16 +25,19 @@ public class MyContents extends HttpServlet {
 		String member_id = request.getParameter("member_id");
 		String which = request.getParameter("which");
 		
-		String which_content_id = which+"content_id";
+		String which_content_id = which+"_content_id";
 		
 		MyConentDAO dao = new MyConentDAO();
 		ArrayList<ContentVO> myWish =  dao.showMyContents(which_content_id, member_id);
 		
-		if(myWish!=null) {
-			HttpSession session = request.getSession();
-			session.setAttribute("myContents", myWish);
-		}
-		response.sendRedirect("my"+which+"Content.jsp");
+		PrintWriter out = response.getWriter();
+		
+		out.print(myWish.get(0).getContent_id());
+//		if(myWish!=null) {
+//			HttpSession session = request.getSession();
+//			session.setAttribute("myWishContents", myWish);
+//		}
+//		response.sendRedirect("my"+which+"Content.jsp");
 		
 	}
 
