@@ -1,3 +1,4 @@
+<%@page import="model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -22,6 +23,9 @@
 </head>
 
 <body>
+<%
+MemberVO vo = (MemberVO)session.getAttribute("member");
+%>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="lds-ellipsis">
@@ -63,13 +67,19 @@
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="event.html">Game</a></li>
                                     <li><a href="event.html">Search</a></li>
+                                    <li><a href="myPage.jsp">My</a></li>
                                 </ul>
 
                                 <!-- Login/Register & Cart Button -->
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
+                                    
                                     <div class="login-register-btn mr-50">
+                                    <%if(vo==null){ %>
                                         <a href="login.jsp" id="loginBtn">Login / Register</a>
+                                        <%}else{%>
+                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+                                        <% } %>
                                     </div>
 
                                     <!-- Cart Button -->

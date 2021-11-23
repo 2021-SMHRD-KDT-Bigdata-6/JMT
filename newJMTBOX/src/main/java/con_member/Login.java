@@ -30,7 +30,7 @@ public class Login extends HttpServlet {
 		if(vo!=null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("member", vo);
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("main.jsp");
 		}else {
 			response.sendRedirect("login.jsp");
 		}
