@@ -16,6 +16,7 @@
 	<a href='mySeenContents.jsp'>내가 본 작품</a><BR>
 	<a href='myLikeContents.jsp'>내가 좋아요한 작품</a><BR>
 	<a href='myShareContents.jsp'>내가 공유한 작품</a><BR>
+	<a href='myReviews.jsp'>내가 쓴 리뷰</a><BR>
 	
 	<script src = '../js/jquery/jquery-3.6.0.js'></script>
 	<script>

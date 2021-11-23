@@ -19,13 +19,13 @@ public class ReviewDAO {
 		ArrayList<ReviewVO> ReviewList = new ArrayList<ReviewVO>();
 
 		try {
-			sql = "select * from Review where content_id = ? and review_done = 1";
+			sql = "select * from reviews where content_id = ? and review_done = 1";
 			psmt = j.conn.prepareStatement(sql);
 			psmt.setString(1, content_id);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				vo = new ReviewVO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getInt(7), rs.getInt(8), rs.getString(9));
+				vo = new ReviewVO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getInt(7), rs.getInt(8), rs.getString(9));
 				ReviewList.add(vo);
 			}
 
@@ -45,13 +45,13 @@ public class ReviewDAO {
 		ArrayList<ReviewVO> MyReviewList = new ArrayList<ReviewVO>();
 
 		try {
-			sql = "select * from Review where member_id = ?";
+			sql = "select * from reviews where member_id = ?";
 			psmt = j.conn.prepareStatement(sql);
 			psmt.setString(1, member_id);
 			rs = psmt.executeQuery();
 
 			while (rs.next()) {
-				vo = new ReviewVO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getInt(7), rs.getInt(8), rs.getString(9));
+				vo = new ReviewVO(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getDate(6), rs.getInt(7), rs.getInt(8), rs.getString(9));
 				vo.setReview_done(rs.getInt(10));
 				MyReviewList.add(vo);
 			}
@@ -75,7 +75,7 @@ public class ReviewDAO {
 			if(isNew == 1) {
 				String sql = "INSERT INTO Review values(Review_SEQ.NEXTVAL, ?, ?, ?, ?, sysdate, 0, 0, ?, ?)";
 				psmt = j.conn.prepareStatement(sql);
-				psmt.setInt(1, vo.getMemberId());
+				psmt.setString(1, vo.getMemberId());
 				psmt.setInt(2, vo.getContentId());
 				psmt.setString(3, vo.getcTumbnail());
 				psmt.setString(4, vo.getReview());
@@ -86,7 +86,7 @@ public class ReviewDAO {
 				String sql = "INSERT INTO Review (member_id, review, tag, review_done) values(?, ?, ?, ?) where review_id=?";
 				//수정하는 거면 리뷰 like, share수 등 기존에 값이 있는 것들 제외
 				psmt = j.conn.prepareStatement(sql);
-				psmt.setInt(1, vo.getMemberId());
+				psmt.setString(1, vo.getMemberId());
 				psmt.setString(2, vo.getReview());
 				psmt.setString(3, vo.getTag());
 				psmt.setInt(4, vo.getReview_done());
