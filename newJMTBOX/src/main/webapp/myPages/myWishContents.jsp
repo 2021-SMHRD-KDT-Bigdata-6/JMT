@@ -1,3 +1,4 @@
+<%@page import="model.ContentDAO"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="model.MyConentDAO"%>
 <%@page import="model.ContentVO"%>
@@ -24,6 +25,9 @@
 <!-- Stylesheet -->
 <link rel="stylesheet" href="../style.css">
 <style>
+section{
+	background: white;
+}
 .row {
 	display: flex;
 	justify-content: center;
@@ -70,19 +74,19 @@
 				<div class="single-album">
 					<div class="single-album-container">
 						<div class="img-center">
-							<img src="<%=i.getC_thumbnail() %>" alt="">
+							<a href="contentInfo.jsp?data=<%=i.getContent_id()%>"><img src="<%=i.getC_thumbnail() %>" alt=""></a>
 						</div>
 					</div>
 					<div class="album-info">
-						<a href="#">
-							<h5>The Cure</h5>
+						<a href="contentInfo.jsp?data=<%=i.getContent_id()%>">
+							<h5><%=i.getTitle() %></h5>
 						</a>
-						<p>Second Song</p>
+						<!-- <p>Second Song</p> -->
 					</div>
 				</div>
 
 
-				} %>
+				<%} %>
 
 
 			</div>
