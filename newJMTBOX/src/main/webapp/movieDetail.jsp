@@ -137,7 +137,6 @@
       width: 1100px;
       height: 600px;
       margin: 0 auto;
-      
       position: relative;
       overflow: hidden;
       
@@ -254,14 +253,15 @@
     }
 
     #btn_head {
-      width: 1500px;
-      position: relative;
+      min-width:100%;
+      margin: 0 auto;
+      position: absolute;
       overflow: hidden;
     }
 
     #btn_body {
       border-bottom: black solid 1px;
-      width: 1100px;
+      min-width: 1100px;
       height: 200px;
       margin: 0 auto;
       position: relative;
@@ -294,10 +294,14 @@
 
     #body {
       border-bottom: black solid 1px;
-      width: 1100px;
-      height: 200px;
+      display : inline-block;
+      min-width : 100%;
+      height: 100%;
       margin: 0 auto;
-      position: relative;
+      position: absolute;
+      top : 500;
+
+      
       overflow: hidden;
     }
 

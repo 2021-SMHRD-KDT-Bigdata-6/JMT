@@ -2,7 +2,7 @@
 /* :: 1.0 Import Fonts */
 @import url("https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,600,600i,700,700i");
 
-/*·ç¸® À¥ÆùÆ® Ãß°¡ÇÔ Spartan*/
+/*ï¿½ç¸® ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ß°ï¿½ï¿½ï¿½ Spartan*/
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@200&display=swap');
 @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 /* :: 2.0 Import All CSS */
@@ -19,7 +19,7 @@
 * {
   margin: 0;
   padding: 0; }
-/*µé¤©¤©*/
+/*ï¿½é¤©ï¿½ï¿½*/
 body {
   font-family: "Archivo Narrow", sans-serif;
   font-size: 14px; }
@@ -1699,7 +1699,7 @@ img {
     font-size: 16px; }
   .single-web-icon:hover {
     box-shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.15); }
-/* °Ë»öÃ¢ Ãß°¡ */
+/* ï¿½Ë»ï¿½Ã¢ ï¿½ß°ï¿½ */
 .search-container {
 	padding-top: 0px;
 	margin-bottom:150px;
@@ -1757,7 +1757,7 @@ img {
 /* ====== The End ====== */
 
 
-/* == ·ç¸®¸íÀº °ÔÀÓ¹öÆ° ¼öÁ¤ ==*/
+/* == ï¿½ç¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¹ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ==*/
 
 .section-padding-100 .button-container{
 	width:fit-content;
@@ -1806,7 +1806,7 @@ img {
 	 
 
 
-/* == ·ç¸®¸íÀº °ÔÀÓ¹öÆ° ¼öÁ¤ ==*/
+/* == ï¿½ç¸®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¹ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ==*/
 
 
 .rountTitle-container{
@@ -1935,3 +1935,111 @@ text-align:center;}
 .list_ideal li span img {width:100%}
 /* push*/
 /*# sourceMappingURL=style.css.map */
+
+
+/* elements.html ì°¬ìµ*/
+body{
+	background-color:rgba(0, 0, 0, 0.95) !important;
+	}
+	.inner {
+      min-width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      text-align: center;
+    	margin:0 auto;
+      font-size: 20px;
+    	padding:0%;
+    	float : left;
+    }
+    .pic{
+    	justify-content: center;
+    	float:left;
+    	padding-right: 5%;
+    	padding-left:5%
+    }
+    .pic img{
+    	border-radius:10px;
+    	width:60%;
+    }
+    .ul_pic{
+    	display:flex;
+    	justify-content:center;
+    
+    }
+   .section-padding-100 .movie-review{
+        position:relative;
+        margin-left:15%;
+       
+    }
+    .section-padding-100 .movie-review-list-container{
+        width:70%;
+        height:30%;       
+    }
+    .section-padding-100 .movie-review-list-container .movie-review-list{
+        border:1px solid;
+        margin-bottom:10px;
+        
+    }
+    .section-padding-100 .movie-review-list-container .movie-review-list .user-info{
+        margin-top:10px;
+        padding-left:20px;
+        padding-bottom:5px;
+        
+    }
+    .section-padding-100 .movie-review-list-container .movie-review-list .user-info span#b{
+    
+        text-align: right;
+    }
+    .section-padding-100 .movie-review-list-container .movie-review-list .movie-rate{
+        padding-left:20px;
+        border-bottom:1px solid;
+    }
+    /*ë¦¬ë·° ë‚´ìš©*/
+    .section-padding-100 .movie-review-list-container .movie-review-list .movie-review-contents-wrap .review-content{
+        height:100px;
+        border-bottom: 1px solid;
+        padding-left:20px;    
+    }
+    
+    .section-padding-100 .movie-review-list-container .movie-review-list .movie-review-contents-wrap .review-action-info-wrap{
+    /* action ë²„íŠ¼ */
+        padding-left:20px;
+        padding-top:8px;
+        padding-bottom:8px;
+        text-align:center;
+    }
+
+    .section-padding-100 .movie-review-list-container .movie-review-list .movie-review-contents-wrap .review-action-info-wrap span{
+        margin-right:30px;
+    }
+    /*ì›”ë“œì»µ ëª©ë¡*/
+    .section-padding-100 .movie-games-wrap{
+        width:70%;
+        height:200px;
+        margin-left:15%;
+    }
+    .section-padding-100 .movie-games-list{
+        position: relative;
+        
+    }
+    .section-padding-100 .img-container{
+        position:relative;
+        width:20%;
+        overflow:hidden;
+        float:left;
+        margin-right:20px;
+        text-align: center;
+    }
+    img{
+        position:relative;
+        max-width: 100%;
+    }
+    .movie-review-list{
+    	text-align:center;
+    }
+
+
+
+
+

@@ -117,12 +117,12 @@
     
     </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="lezhinGame.js" async defer></script>
+    <script src="./js/lezhinGame.js" async defer></script>
 
     <script>
       function start() {
     	  $.ajax({
-    		  url : 'http://localhost:8082/ddff/newFile',
+    		  url : 'http://localhost:8082/newJMTBOX/CreateRanTournament',
     		  dataType : 'json',
     		  success : function(result){
     			  console.log(result);
@@ -135,11 +135,7 @@
       }
       
     </script>
-   
-   
-   
-   
-   
+
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
