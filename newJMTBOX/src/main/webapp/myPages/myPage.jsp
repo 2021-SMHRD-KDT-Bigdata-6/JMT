@@ -10,9 +10,12 @@
 <body>
 	<%
 	MemberVO vo = (MemberVO)session.getAttribute("member");
-	out.print(vo.getId());
+	
 	%>
-	<a href='myWishContents.jsp'>내가 찜한 작품</a>
+	<a href='myWishContents.jsp'>내가 찜한 작품</a><BR>
+	<a href='mySeenContents.jsp'>내가 본 작품</a><BR>
+	<a href='myLikeContents.jsp'>내가 좋아요한 작품</a><BR>
+	<a href='myShareContents.jsp'>내가 공유한 작품</a><BR>
 	
 	<script src = '../js/jquery/jquery-3.6.0.js'></script>
 	<script>

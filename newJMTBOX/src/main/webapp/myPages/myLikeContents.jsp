@@ -17,7 +17,7 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title>My Wish Contents List</title>
+<title>My Like Contents List</title>
 
 <!-- Favicon -->
 <link rel="icon" href="../img/core-img/favicon.ico">
@@ -46,10 +46,10 @@ section{
 	MemberVO vo = (MemberVO) session.getAttribute("member");
 	MyConentDAO dao = new MyConentDAO();
 	ArrayList<ContentVO> list =null;
-	list=dao.showMyContents("wish_content_id", vo.getId());
+	list=dao.showMyContents("like_content_id", vo.getId());
 	
 	if (list == null) {
-		out.print("<p>찜한 작품이 없습니다.</p>");
+		out.print("<p>본 작품이 없습니다.</p>");
 	} else {
 	%>
 	
@@ -61,7 +61,7 @@ section{
 						<p>What's new?</p>
 
 						<h2>
-							<%=vo.getNick()%>님의 WISH CONTENTS
+							<%=vo.getNick()%>님의 LIKE CONTENTS
 						</h2>
 					</div>
 				</div>
