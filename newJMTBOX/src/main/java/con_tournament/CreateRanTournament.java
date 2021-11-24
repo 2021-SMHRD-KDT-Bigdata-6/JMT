@@ -27,14 +27,14 @@ public class CreateRanTournament extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		
-		String title = request.getParameter("title");
-		String c_thumbnail = request.getParameter("c_thumbnail");
+		//String title = request.getParameter("title");
+		//String c_thumbnail = request.getParameter("c_thumbnail");
 		//프린트아웃을 이용해 서버페이지에 출력을 해야 ajax 데이터를 받아올 수 있다.
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
 		
 		ContentDAO dao = new ContentDAO();
-		ArrayList<ContentVO> vor = dao.contents(title, c_thumbnail);
+		ArrayList<ContentVO> vor = dao.contents();
 		JsonArray result = new JsonArray();
 		for (int i = 0; i < vor.size(); i++) {
 			result.add(gson.toJson(vor.get(i)));

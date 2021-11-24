@@ -20,6 +20,7 @@ if(!window['lezhin']) {
 	for(let i = 0; i < result.length; i++){
 		result2.push(JSON.parse(result[i]));
 	}
+	console.log(result2);
       _O.init(result2);
       _O.Ctrl.gameNewStart.bind(_O.Ctrl)();
     };

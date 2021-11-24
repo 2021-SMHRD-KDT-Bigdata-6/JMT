@@ -120,13 +120,17 @@
     <script src="./js/lezhinGame.js" async defer></script>
 
     <script>
+    
+    
+    
       function start() {
     	  $.ajax({
     		  url : 'http://localhost:8082/newJMTBOX/CreateRanTournament',
     		  dataType : 'json',
     		  success : function(result){
+    			  t_contentInfo = result;
     			  console.log(result);
-    			  lezhin.start(result);
+    			 lezhin.start(result);
     		  }, error : function(){
     			  alert('실패!')
     		  }
