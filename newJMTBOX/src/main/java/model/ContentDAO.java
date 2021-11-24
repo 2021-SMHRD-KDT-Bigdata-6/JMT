@@ -134,16 +134,19 @@ public class ContentDAO {
 	}
 	
 	
-	//5.랜덤토너먼트 만들기
-	public ArrayList<ContentVO> contents() {
+	//5.랜덤토너먼트 만들기(DB저장)
+	public ArrayList<ContentVO> createRanTour(String tournament_name, String member_id) {
 		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
 		ContentVO vo = null;
+		j.conn();
+		
 		try {
-			j.conn();
 			String sql = "SELECT * from ( select * from contents ORDER BY dbms_random.value )"
 					+ " where rownum <= 16";
 			psmt = j.conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
+			
+			
 			while(rs.next()) {
 				vo = new ContentVO();
 				vo.setContent_id(rs.getInt("content_id"));
@@ -151,9 +154,43 @@ public class ContentDAO {
 				vo.setC_thumbnail(rs.getString("c_thumbnail"));
 				vo.setC_like(rs.getInt("c_like"));
 				vo.setTournament_point(rs.getInt("TOURNAMENT_POINT"));
-			
+				
 				al.add(vo);
 			}
+			
+			String sql1 = "insert into tournaments values(tournaments_seq.nextval, ?, ?, sysdate, 0, 0, 0, 16)";
+			PreparedStatement psmt1 = j.conn.prepareStatement(sql1);
+			psmt1.setString(1, tournament_name);
+			psmt1.setString(2, member_id);
+			psmt1.executeUpdate();
+			
+			
+			int jo = 0;
+			int num = 0;
+			int isRight=0;
+			
+			for(ContentVO i : al) {
+				num++;
+				if(num%2==1) {
+					jo++;
+					isRight= 0;
+					}else {
+						isRight=1;
+					}
+				
+				System.out.println("jo는"+jo+" ,isRight="+isRight);
+				
+				
+				String sql2 = "insert into tour_contents values ((select max(tournament_id) from tournaments), 16, ?, ?, ?, ?)";
+				PreparedStatement psmt2 = j.conn.prepareStatement(sql2);
+				psmt2.setInt(1, jo);
+				psmt2.setInt(2, isRight);
+				psmt2.setInt(3, i.getContent_id());
+				psmt2.setString(4, i.getC_thumbnail());
+				psmt2.executeUpdate();
+				
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -161,6 +198,42 @@ public class ContentDAO {
 		}
 		return al;
 	}
+	public ArrayList<ContentVO> enjoyRanTour() {
+		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
+		ContentVO vo = null;
+		j.conn();
+		
+		try {
+			String sql = "SELECT * from ( select * from contents ORDER BY dbms_random.value )"
+					+ " where rownum <= 16";
+			psmt = j.conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				vo = new ContentVO();
+				vo.setContent_id(rs.getInt("content_id"));
+				vo.setTitle(rs.getString("title"));
+				vo.setC_thumbnail(rs.getString("c_thumbnail"));
+				vo.setC_like(rs.getInt("c_like"));
+				vo.setTournament_point(rs.getInt("TOURNAMENT_POINT"));
+				
+				al.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			j.close();
+		}
+		return al;
+	}
+	
+	
+	//6. 랜덤토너먼트 즐기기(DB저장X)
+	
+	
+	
 	public ArrayList<ContentVO> contents_b(String title, String c_thumbnail) {
 		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
 		ContentVO vo = null;
