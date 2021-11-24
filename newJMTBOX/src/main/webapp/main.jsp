@@ -1,3 +1,5 @@
+<%@page import="model.TournamentVO"%>
+<%@page import="model.TournamentDAO"%>
 <%@page import="model.ContentVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.ContentDAO"%>
@@ -27,17 +29,19 @@
 
 <body>
 <%
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+response.setContentType("text/html;charset=UTF-8");
 MemberVO vo = (MemberVO)session.getAttribute("member");
-%>
-<% //작품 리스트 우선 LatestContent
-	request.setCharacterEncoding("UTF-8");
-	response.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html;charset=UTF-8");
+	//인기 토너먼트 게임
+	TournamentDAO tourDao = new TournamentDAO();
+	ArrayList<TournamentVO> hotTourList = tourDao.showHotTournament();
+
+	 //작품 리스트 우선 LatestContent
 	ContentVO cvo = new ContentVO();
 	ContentDAO dao = new ContentDAO();
 	//얘는 최신content
 	ArrayList<ContentVO> newList = null;
-	
 	newList = dao.showLatestContents();
 	
 	//얘는 hot content
@@ -86,9 +90,9 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                     <li><a href="main.jsp">Home</a></li>
                                     <li><a href="#">Game</a>
                                     <ul class="dropdown">
-                                            <li><a href="tournament.jsp">All game</a></li>
-                                            <li><a href=".jsp">Random game</a></li>
-                                            <li><a href=".jsp">Make game</a></li>
+                                            <li><a href="game.jsp">All game</a></li>
+                                            <li><a href="gameRanPlay.jsp">Play Random game</a></li>
+                                            <li><a href="gameMake.jsp">Make game</a></li>
                                     </ul>
                                    </li>
                                     <li><a href="contentInfo.jsp">Search</a></li>
@@ -201,42 +205,52 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                 <div class="col-12">
                     <div class="section-heading style-2">
                         <p> This week! </p>
-                        <h2>Top 20 Games</h2>
+                        <h2>Top 15 Games</h2>
                     </div>
                 </div>
             </div>
             
 
             <div class="row">
-                <div class="col-12">
-                    <div class="albums-slideshow owl-carousel">
-                       <!-- List 1 -->
-                        <div class="single-album" onClick="location.href='movieDetail.jsp'" >
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                           	 		<img src="img/bg-img/a1.jpg" alt="">
-                            	</div>
-                            </div>
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Cure</h5>
-                                </a>
-                                <p>Second Song</p>
-                            </div>
-                        </div>
 
-                        
-                        
-                        
-                    </div>
-                </div>
-            </div>
+
+
+				<div class="col-12">
+					<div class="albums-slideshow owl-carousel">
+						<!-- List 1 -->
+						<%
+						for (TournamentVO i : hotTourList) {
+						%>
+						<div class="single-album"
+							onClick="location.href='movieDetail.jsp'">
+							<div class="single-album-container">
+								<div class="img-center">
+									<a href="gamePlay.jsp?data=<%=i.getThumbnail()%>"> <img
+										src="<%=i.getThumbnail()%>" alt="">
+									</a>
+								</div>
+							</div>
+							<div class="album-info">
+								<a href="#">
+									<h5><%=i.getTournamentName()%></h5>
+								</a>
+							</div>
+						</div>
+						<%
+						}
+						%>
+					</div>
+				</div>
+
+
+
+			</div>
         </div>
     </section>
     
-    <!-- 나열 list 추가하고 싶으면 lastest Albums Area1 End 섹션 추가하기! -->
-    <!-- ##### 월드컵 목록  ##### -->
-    <!-- ##### Latest Albums Area1 End ##### -->
+    
+    <!-- ##### 월드컵 목록 끝 ##### -->
+    
 
     <!-- ##### 22 Start ##### -->
     <!-- #####  인기 컨텐츠 hot Contents  ##### -->

@@ -2,8 +2,8 @@
 <%@page import="model.ContentDAO"%>
 <%@page import="model.ContentVO"%>
 <%@page import="model.MemberVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +22,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 <style>
-	/*¹öÆ° css*/
+	/*ë²„íŠ¼ css*/
 	.make-game{
 	display: flex;
     justify-content: center;
@@ -47,7 +47,7 @@
 <%
 MemberVO vo = (MemberVO)session.getAttribute("member");
 
-	//hot content ==> °Ë»öÇÏ¸é ¹Ù²Ù´Â°É·Î ¹Ù²ã¾ßµÊ ÀÌ¹ÌÁö ³ª¿À´ÂÁö È®ÀÎ¿ë!!
+	//hot content ==> ê²€ìƒ‰í•˜ë©´ ë°”ê¾¸ëŠ”ê±¸ë¡œ ë°”ê¿”ì•¼ë¨ ì´ë¯¸ì§€ ë‚˜ì˜¤ëŠ”ì§€ í™•ì¸ìš©!!
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html;charset=UTF-8");
@@ -139,37 +139,37 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 	
-	<!-- ¸î°­ start-->
+	<!-- ëª‡ê°• start-->
 	<section class="section-padding-100">
 		<div class="make-section">
 			<div class="make-font">
-			<h2>¸î°­ÀÇ °ÔÀÓÀ» ¸¸µå½Ç °Ç°¡¿ä?</h2>
+			<h2>ëª‡ê°•ì˜ ê²Œì„ì„ ë§Œë“œì‹¤ ê±´ê°€ìš”?</h2>
 			</div>
 			<div class="make-option">
 				<select>
-					<option><p>¼±ÅÃ</p></option>
-					<option><p>4°­</p></option>
-					<option><p>8°­</p></option>
-					<option><p>16°­</p></option>
-					<option><p>32°­</p></option>
+					<option><p>ì„ íƒ</p></option>
+					<option><p>4ê°•</p></option>
+					<option><p>8ê°•</p></option>
+					<option><p>16ê°•</p></option>
+					<option><p>32ê°•</p></option>
 				</select>
 			</div>
 		</div>
 	</section>
-	<!-- ¸î°­ end -->
+	<!-- ëª‡ê°• end -->
 
 	
 	
 	
-	<!-- Åä³Ê¸ÕÆ® Á¦¸ñ start -->
+	<!-- í† ë„ˆë¨¼íŠ¸ ì œëª© start -->
 	<section class="section-padding-100">
 		<div class="make-tournament-section">
 			<div class="make-font">
-				<h2>´ç½Å¸¸ÀÇ °ÔÀÓ ÀÌ¸§À» ÀÛ¼ºÇØÁÖ¼¼¿ä!</h2>
+				<h2>ë‹¹ì‹ ë§Œì˜ ê²Œì„ ì´ë¦„ì„ ì‘ì„±í•´ì£¼ì„¸ìš”!</h2>
 			</div>
 			<div class="make-game-name">
 
-				<input type="text" placeholder="Á¦¸ñ">
+				<input type="text" placeholder="ì œëª©">
 			
 			</div>
 		
@@ -177,19 +177,19 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 	
 	
 	</section>
-	<!-- Åä³Ê¸ÕÆ® Á¦¸ñ end -->
+	<!-- í† ë„ˆë¨¼íŠ¸ ì œëª© end -->
 	
-	<!-- °Ë»öÃ¢ -->
-	<!-- °Ë»öÃ¢ ÁÙ¿©¾î¾î¾î -->
+	<!-- ê²€ìƒ‰ì°½ -->
+	<!-- ê²€ìƒ‰ì°½ ì¤„ì—¬ì–´ì–´ì–´ -->
 	<section class ="section-padding-100">
 
 		<div class="search-container2">
 				<div class="make-font">
-					<h2>ÀÛÇ° °Ë»ö</h2>
+					<h2>ì‘í’ˆ ê²€ìƒ‰</h2>
 				</div>
 				<div class="search-box-make">
-					<!-- °Ë»ö name°ªÀ» content_id·Î Àâ¾Æ¾ßÇÏ³ª?.. -->
-					<input class="search" type="text" placeholder="ÀÛÇ°Á¦¸ñ ¹× ÅÂ±× ÀÔ·Â"
+					<!-- ê²€ìƒ‰ nameê°’ì„ content_idë¡œ ì¡ì•„ì•¼í•˜ë‚˜?.. -->
+					<input class="search" type="text" placeholder="ì‘í’ˆì œëª© ë° íƒœê·¸ ì…ë ¥"
 						name="search">
 					
 				</div>
@@ -198,11 +198,11 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 
 
 	</section>
-	<!-- ¿ì¸®ÀÛÇ°ÀÌ ¶ß´Â Ä­ (¿¹½Ã latest-album¿¡¼­°¡Á®¿Í¾ßµÇ³ª? -->
+	<!-- ìš°ë¦¬ì‘í’ˆì´ ëœ¨ëŠ” ì¹¸ (ì˜ˆì‹œ latest-albumì—ì„œê°€ì ¸ì™€ì•¼ë˜ë‚˜? -->
 	<section class="section-padding-100">
-		<!-- Ä«Å×°í¸® -->
+		<!-- ì¹´í…Œê³ ë¦¬ -->
 		<div class="make-font">
-			<h2>¼±ÅÃ ÀÛÇ°</h2>
+			<h2>ì„ íƒ ì‘í’ˆ</h2>
 		</div>
 		<div class="content-list-container">
 		
@@ -235,10 +235,10 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 
 	</section>
 	
-	<!-- ÆÄÀÏ ¾÷·Îµå ¹öÆ° -->
+	<!-- íŒŒì¼ ì—…ë¡œë“œ ë²„íŠ¼ -->
 	<section class ="section-padding-100-70">
  		<div class="make-game">
- 				<input id="make-game-button" type="button" value="MAKE GAME" onclick="°ÔÀÓÀ»¸¸µé¾ú´Ù°íalertÃ¢ Ãâ·Â¾î¶¶?=>±×·¯°ítournament.jsp·Î">
+ 				<input id="make-game-button" type="button" value="MAKE GAME" onclick="ê²Œì„ì„ë§Œë“¤ì—ˆë‹¤ê³ alertì°½ ì¶œë ¥ì–´ë–°?=>ê·¸ëŸ¬ê³ tournament.jspë¡œ">
  		</div>
 
 	
