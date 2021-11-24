@@ -258,7 +258,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                     <div class="albums-slideshow owl-carousel">
                        <!-- List 1 -->
                        <%for(int i=0; i<15;i++){ %>
-                        <div class="single-album">
+                        <div class="single-album" onclick="location.href='contentInfo.jsp?content_id=<%=hotList.get(i).getContent_id()%>'">
                         	<div class="single-album-container">
                         		<div class="img-center">
                            	 		<img src="<%=hotList.get(i).getC_thumbnail() %>" alt="">

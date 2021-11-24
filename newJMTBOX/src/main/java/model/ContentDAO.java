@@ -63,7 +63,7 @@ public class ContentDAO {
 				vo.setC_thumbnail(rs.getString(3));
 				vo.setC_like(rs.getInt(4));
 				vo.setTournament_point(rs.getInt(5));
-
+				
 				ContentList.add(vo);
 			}
 
@@ -111,7 +111,7 @@ public class ContentDAO {
 	}
 	
 	//4.작품 상세보기 
-	public ContentVO showContentInfo(String content_id) {
+	public ContentVO showContentInfo(int content_id) {
 		
 		j.conn();
 		ContentVO vo = null;
@@ -119,12 +119,16 @@ public class ContentDAO {
 		try {
 			String sql = "select * from contents where content_id = ?";
 			psmt = j.conn.prepareStatement(sql);
-			psmt.setString(1, content_id);
+			psmt.setInt(1, content_id);
 			rs = psmt.executeQuery();
 			
+			if(rs.next()) {
 			vo = new ContentVO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getInt(11), rs.getInt(12), rs.getInt(13), rs.getInt(14), rs.getString(15), rs.getString(17));
+			}
+		} catch(NumberFormatException e) {
 			
-		} catch (Exception e) {
+		}
+			catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			j.close();

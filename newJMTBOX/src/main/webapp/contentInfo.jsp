@@ -1,3 +1,8 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.ReviewVO"%>
+<%@page import="model.ReviewDAO"%>
+<%@page import="model.ContentVO"%>
+<%@page import="model.ContentDAO"%>
 <%@page import="model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
@@ -46,7 +51,34 @@ padding-left:0px !important;}
 
 <body>
 <%
-MemberVO vo = (MemberVO)session.getAttribute("member");
+	MemberVO vo = (MemberVO)session.getAttribute("member");
+//?content_id=<%=hotList.get(i).getContent_id() =>main에서 contetnInfo(현재페이지) 쿼리스트링으로 content_id를 넘겨줄 값
+//main.jsp에서 클릭한 콘텐츠의 id값을 request.getParameter("content_id")로 받아왔는데 String형태라 int형태로 바꿔주고
+//다시 content_id 변수에 담아줌! => ※ 이게 main과 contentInfo의 content_id를 동일하게 하는것!!!
+	int content_id = Integer.parseInt(request.getParameter("content_id"));
+
+	//DAO,VO 사용
+	ContentDAO conDao = new ContentDAO();
+
+
+	ContentVO conVo = new ContentVO();	
+	conVo=null;
+
+	conVo=conDao.showContentInfo(content_id);
+
+	System.out.println(conVo);
+	
+	//리뷰
+	ReviewDAO revDao = new ReviewDAO();
+	ReviewVO revVo = new ReviewVO();
+	
+	ArrayList<ReviewVO> ReviewList = null; 
+	
+	
+	//ReviewList= revDao.showReviewList(content_id);
+	//리뷰 contetn_id 인트형태 아님
+	
+	System.out.println(ReviewList);
 %>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -146,18 +178,18 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
     <div class="movie-detail">
             <div class="movie-img-container">
                 <div class="movie-img-area" style="width: 100%">
-                    <img class ="movie-img" src="./img/bg-img/test-img.jpg" alt="Loading"  style="width: 100%">
+                    <img class ="movie-img" src="<%=conVo.getC_thumbnail() %>" alt="Loading"  style="width: 100%">
                 </div>
                 <div class ="movie-img-gradient"></div>
                 
                 <div class="movie-img-smallarea">
-                    <img class="movie-smallimg" src="./img/bg-img/test-img.jpg" alt="Loading"> 
+                    <img class="movie-smallimg" src="<%=conVo.getC_thumbnail() %>" alt="Loading"> 
                 </div>
             </div>
             <div class="movie-detail-text">
-                <h2 style='font-family: "Pretendard-Light"'id ="">제목</h2>
-                <p style='font-family: "Pretendard-Light";' id ="">장르입력 </br>
-                        #띵작 #재밌다 #오예</br>
+                <h2 style='font-family: "Pretendard-Light"'id =""><%=conVo.getTitle() %></h2>
+                <p style='font-family: "Pretendard-Light";' id =""><%=conVo.getGenre() %> </br>
+                        <%=conVo.getTag() %></br>
                         월드컵지수</p>
             </div>
     </div>
@@ -250,7 +282,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                         <div class="col-12 col-md-6">
                             <div class="single-service-area d-flex flex-wrap mb-100">
                                 <div class="text">
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/6NmLmVfPwhs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe width="560" height="315" src="<%=conVo.getYoutube() %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                                 </div>
                             </div>
@@ -366,16 +398,23 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                 <div class="reviewsection">
                     <div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="true">
                         <!-- single accordian area -->
+                       
                         <div class="panel single-accordion">
-                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Roori
+                        
+                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">rr
                                     <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                     <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                                     </a></h6>
                             <div id="collapseOne" class="accordion-content collapse show">
-                                <p>한마디로 재미없음. 머글들을 타겟층으로 했다기엔 액션이 매우 별로고, 그렇다고 마블 덕후들을 타겟층으로 했다기에는 캐릭터들의 관계성이 전혀 안 드러남. 그래서 전에는 어벤져스 어셈블하면 살짝 오글거리긴 해도 히어로물 뽕이 가득 찼었는데, 이번 영화에서는 이터널스가 모여있어도 별 감흥이 없음. 이터널스 지들끼리 치고 박고 싸울 때도 액션이 구리니까 볼 맛이 전혀 안 남. 심지어 롯데시네마만의 문제인 건지는 모르겠지만 영상 밝기도 전체적으로 어두우니 잠이 솔솔 옴. 진짜 마블 영화보면서 졸렵다는 생각 처음 해 봄. 이거 볼 바에 듄 n차 뛰는 게 백만배 나음.</p>
+                                <p>
+                                    안됨
+                                
+
+
+                                </p>
                             </div>
                         </div>
-                        
+                       
                         <!-- single accordian area -->
                         <div class="panel single-accordion">
                             <h6>
