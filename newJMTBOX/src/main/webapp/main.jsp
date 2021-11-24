@@ -476,7 +476,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                 <a href="#">
                                     <h5><%=hlist.get(i).getTitle() %></h5>
                                 </a>
-                                <p>Second Song</p>
+                                <p><%=hlist.get(i).getPlatform() %></p>
                             </div>
                         </div>
                         <%} %>
