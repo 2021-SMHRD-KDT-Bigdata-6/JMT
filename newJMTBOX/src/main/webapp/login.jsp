@@ -104,9 +104,7 @@
                                     </div>
 
                                     <!-- Cart Button -->
-                                    <div class="cart-btn">
-                                        <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div>
+
                                 </div>
                             </div>
                             <!-- Nav End -->

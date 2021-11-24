@@ -170,6 +170,29 @@
 			</div>
 		</div>
 	</section>
+	
+	    <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row d-flex flex-wrap align-items-center">
+                <div class="col-12 col-md-6">
+                    <a href="#"><img src="../img/bg-img/logo.png" alt=""></a>
+
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="footer-nav">
+                        <ul>
+                            <li><a href="Main.jsp">Home</a></li>
+                            <li><a href="tournament.jsp">Games</a></li>
+                            <li><a href="ContentInfo.jsp">Search</a></li>
+                            <li><a href="Mypage.jsp">My</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 	<!-- ##### All Javascript Script ##### -->
