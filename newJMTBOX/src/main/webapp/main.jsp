@@ -106,15 +106,16 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
             <!-- Single Hero Slide -->
             <div class="single-hero-slide d-flex align-items-center justify-content-center">
                 <!-- Slide Img -->
-                <div class="slide-img bg-img" style="background-image: url(img/bg-img/bg-1.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(img/bg-img/Main_banner2.jpg);"></div>
                 <!-- Slide Content -->
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="hero-slides-content text-center">
-                                <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
+                                <!-- <h6 data-animation="fadeInUp" data-delay="100ms">Latest album</h6>
                                 <h2 data-animation="fadeInUp" data-delay="300ms">Beyond Time <span>Beyond Time</span></h2>
-                                <a data-animation="fadeInUp" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
+                                 -->
+                                <a data-animation="fadeInUp" style="top:60%" data-delay="500ms" href="#" class="btn oneMusic-btn mt-50">Discover <i class="fa fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -187,7 +188,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                 <div class="col-12">
                     <div class="albums-slideshow owl-carousel">
                        <!-- List 1 -->
-                        <div class="single-album">
+                        <div class="single-album" onClick="location.href='movieDetail.jsp'" >
                         	<div class="single-album-container">
                         		<div class="img-center">
                            	 		<img src="img/bg-img/a1.jpg" alt="">
