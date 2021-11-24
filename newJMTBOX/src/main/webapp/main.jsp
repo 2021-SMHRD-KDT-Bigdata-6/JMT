@@ -84,7 +84,12 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                             <div class="classynav">
                                 <ul>
                                     <li><a href="main.jsp">Home</a></li>
-                                    <li><a href="tournament.jsp">Game</a></li>
+                                    <li><a href="#">Game</a>
+                                    <ul class="dropdown">
+                                            <li><a href="tournament.jsp">Start game</a></li>
+                                            <li><a href=".jsp">Make game</a></li>
+                                    </ul>
+                                   </li>
                                     <li><a href="contentInfo.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
