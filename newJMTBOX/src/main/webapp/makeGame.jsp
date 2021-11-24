@@ -208,7 +208,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 		
 			<div class="content-list-section">
 				<%
-				for (int i = 0; i < 4; i++) {
+				for (int i = 0; i < 10; i++) {
 				%>
 				
 				<div class="single-album2" >
