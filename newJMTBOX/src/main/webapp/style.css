@@ -2,9 +2,12 @@
 /* :: 1.0 Import Fonts */
 @import url("https://fonts.googleapis.com/css?family=Archivo+Narrow:400,400i,500,500i,600,600i,700,700i");
 
+
+
 /*�縮 ����Ʈ �߰��� Spartan*/
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@200&display=swap');
 @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 /* :: 2.0 Import All CSS */
 @import url(css/bootstrap.min.css);
 @import url(css/classy-nav.css);
@@ -2214,4 +2217,131 @@ text-align:center;}
 
 
 
+	/*makeGame.jsp*/
+	
+	.make-section{
+		width:100%;
+		height:auto;
+	}
+		.make-font{
+			text-align:center;
+			padding-bottom:50px;
+			
+		}
+		.make-font h2{
+			font-family: 'Noto Sans KR', sans-serif;
+			font-size:20px;
+		}
 
+		/*selectbox*/
+		.make-option select {
+			position: relative;
+			left: 35%;
+			text-align: center;
+			width: 30%;
+			padding: 0.9em 1.5em;
+			font-family: 'Pretendard-Light';
+			border: 1.5px solid #363535;
+			border-radius: 0px;
+			font-size: 18px;
+}
+
+		/*title box*/
+		.make-tournament-section{
+		width:100%;
+		height:auto;
+		}
+			.make-game-name{
+				width:100%;
+				height:auto;
+			}
+		
+			.make-game-name input{
+				position:relative;
+				border : 1px solid #363535;
+				width:30%;
+				text-align:center;
+				left:35%;
+				padding:0.9em 1.5em;
+				font-family: 'Pretendard-Light';
+				font-size: 16px;
+			}
+		/*작품검색*/
+		.search-box-make{
+		width:100%;
+		height:auto;
+		}
+			.search-box-make .search{
+			position:relative;
+			border: 1px solid #363535;
+			width:30%;
+			text-align:center;
+			left:35%;
+			padding: 0.9em 1.5em;
+			font-fmaily:'Pretendard-Light';
+			font-size:16px;
+			border-radius:0px;
+			}
+			.search-box-make .search:placehold{
+			font-size:18px;
+			}
+		/*콘텐츠검색뜨는칸*/
+.content-list-container{
+	width:100%;
+	height:auto;
+	
+	
+}
+		.content-list-section{
+			display: flex;
+   			width: 100%;
+    		justify-content: center;
+			left:10%;
+			height:auto;
+			text-align:center;
+		}
+		
+		.single-album2 {
+				width:13%;
+  				position: relative;
+  				z-index: 1;
+			    margin-bottom: 30px;
+			    margin-right:10px;
+			    margin-left:10px;
+			     }
+  		.single-album2 .single-album-container2{
+  				position:relative;
+  				display:inline-block;
+  				overflow:hidden;
+  	
+  	}
+  		.single-album2 .single-album-container2 .img-center2{
+  			position: relative;
+  			top:0;
+  			left:0;
+  			right:0;
+  			bottom:0;
+  			-webkit-transform:translate(0%,0%);
+  			-ms-transform:translate(0%,0%);
+  			transfrom: translate(0%,0%);
+  			float:left;
+  	}
+  .single-album2 .single-album-container2 img {
+    		width:100%;}
+  .single-album2 .album-info2 {
+    		position: relative;
+    		z-index: 1;
+    		text-align: center;
+    		padding-top: 15px;
+    		padding-bottom: 15px;}
+    		#user-chocie{
+    		width: 20px;
+			height: 20px;
+			border: 2px solid #bcbcbc;
+    		}
+   .single-album2 .album-info2 p{
+   font-size:15px;
+   font-family: 'Noto Sans KR', sans-serif;
+   }
+			
+		
