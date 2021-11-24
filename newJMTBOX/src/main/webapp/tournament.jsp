@@ -138,11 +138,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 	<!-- Make Game Button Start -->
 	
 	<section class ="section-padding-100">
- 		<div class="make-game">
- 				<input id="make-game-button" type="button" value="MAKE GAME" onclick="location.href='makegame.html'">
- 		</div>
-
-	
+ 		
 	</section>
 	
     <!-- Make Game Button End -->
