@@ -52,7 +52,7 @@ public class ContentDAO {
 		ArrayList<ContentVO> ContentList = new ArrayList<ContentVO>();
 
 		try {
-			String sql = "select content_id, title, c_thumbnail, c_like, tournament_point from Contents where release >= trunc(add_months(sysdate,-1)) order by release desc";
+			String sql = "select content_id, title, c_thumbnail, c_like, tournament_point from Contents where release >= trunc(add_months(sysdate,-15)) order by release desc";
 			psmt = j.conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 
