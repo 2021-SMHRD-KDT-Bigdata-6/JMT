@@ -19,7 +19,26 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
+	
+	<style>
+	/*¹öÆ° css*/
+	.make-game #make-game-button{
+	position:absolute;
+	left:50%;
+	top:50%;
+	display:inline-block;
+	border: 2px solid black;
+	background-color:transparent;
+	font-size:17px;
+	width:250px;
+	height:60px;
+	transform:translate(-50%,-50%);
+}
+	.make-game #make-game-button:hover{
+		background-color:#6e6e6e;
+	}
+	
+	</style>
 </head>
 
 <body>
