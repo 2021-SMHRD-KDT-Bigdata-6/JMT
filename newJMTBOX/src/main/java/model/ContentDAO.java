@@ -52,7 +52,7 @@ public class ContentDAO {
 		ArrayList<ContentVO> ContentList = new ArrayList<ContentVO>();
 
 		try {
-			String sql = "select content_id, title, c_thumbnail, c_like, tournament_point from Contents where release >= trunc(add_months(sysdate,-1)) order by release desc";
+			String sql = "select content_id, title, c_thumbnail, c_like, tournament_point from Contents where release >= trunc(add_months(sysdate,-15)) order by release desc";
 			psmt = j.conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 
@@ -135,12 +135,38 @@ public class ContentDAO {
 	
 	
 	//5.랜덤토너먼트 만들기
-	public ArrayList<ContentVO> contents(String title, String c_thumbnail) {
+	public ArrayList<ContentVO> contents() {
 		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
 		ContentVO vo = null;
 		try {
 			j.conn();
-			String sql = "SELECT * from ( select * from contents ORDER BY dbms_random.value ) where rownum <=100 and content_id in ('3761','3621','3064', '2973', '3571', '3241', '2970', '2922', '3528', '3458', '3845', '3517', '3169', '3762', '3573', '3169')";
+			String sql = "SELECT * from ( select * from contents ORDER BY dbms_random.value )"
+					+ " where rownum <= 16";
+			psmt = j.conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo = new ContentVO();
+				vo.setContent_id(rs.getInt("content_id"));
+				vo.setTitle(rs.getString("title"));
+				vo.setC_thumbnail(rs.getString("c_thumbnail"));
+				vo.setC_like(rs.getInt("c_like"));
+				vo.setTournament_point(rs.getInt("TOURNAMENT_POINT"));
+			
+				al.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			j.close();
+		}
+		return al;
+	}
+	public ArrayList<ContentVO> contents_b(String title, String c_thumbnail) {
+		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
+		ContentVO vo = null;
+		try {
+			j.conn();
+			String sql = "SELECT title, c_thumbnail from (select * from contents ORDER BY dbms_random.value) where rownum <= 100 and content_id in('3829', '3675', '3712', '3658', '3843', '3614', '3746', '3687', '3647', '3858', '3824', '3754', '3724', '3844', '3655', '3859')";
 			psmt = j.conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
