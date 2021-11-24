@@ -78,7 +78,6 @@ padding-left:0px !important;}
 	//ReviewList= revDao.showReviewList(content_id);
 	//리뷰 contetn_id 인트형태 아님
 	
-	System.out.println(ReviewList);
 %>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -190,7 +189,7 @@ padding-left:0px !important;}
                 <h2 style='font-family: "Pretendard-Light"'id =""><%=conVo.getTitle() %></h2>
                 <p style='font-family: "Pretendard-Light";' id =""><%=conVo.getGenre() %> </br>
                         <%=conVo.getTag() %></br>
-                        월드컵지수</p>
+                        <%=conVo.getTournament_point() %></p>
             </div>
     </div>
     
