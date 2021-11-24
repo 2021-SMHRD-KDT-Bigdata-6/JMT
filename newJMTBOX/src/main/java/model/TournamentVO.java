@@ -17,11 +17,21 @@ public class TournamentVO {
 	private int tLike;
 	private int tShare;
 	private int tournament_point;
+	private String thumbnail;
 	
 	
 	
 	public TournamentVO() {
 		
+	}
+
+	
+
+	public TournamentVO(int tournamentId, String tournamentName, String thumbnail) {
+		super();
+		this.tournamentId = tournamentId;
+		this.tournamentName = tournamentName;
+		this.thumbnail = thumbnail;
 	}
 
 
@@ -51,6 +61,18 @@ public class TournamentVO {
 		this.tLike = tLike;
 		this.tShare = tShare;
 		this.tournament_point = tournament_point;
+	}
+
+
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
 	}
 
 
