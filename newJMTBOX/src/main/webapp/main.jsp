@@ -65,7 +65,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="main.jsp.html" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
+                        <a href="main.jsp" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -85,7 +85,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                 <ul>
                                     <li><a href="main.jsp">Home</a></li>
                                     <li><a href="tournament.jsp">Game</a></li>
-                                    <li><a href="search.jsp">Search</a></li>
+                                    <li><a href="contentInfo.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
                                     <%} %>
@@ -104,9 +104,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                     </div>
 
                                     <!-- Cart Button -->
-                                    <div class="cart-btn">
-                                        <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div>
+               
                                 </div>
                             </div>
                             <!-- Nav End -->
@@ -575,31 +573,27 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 	
     
     <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
+      <footer class="footer-area">
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    <a href="#"><img src="img/bg-img/logo.png" alt=""></a>
+
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="footer-nav">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Albums</a></li>
-                            <li><a href="#">Events</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="main.jsp">Home</a></li>
+                            <li><a href="tournament.jsp">Games</a></li>
+                            <li><a href="contentInfo.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-    <!-- ##### Footer Area Start ##### -->
+
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->

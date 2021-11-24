@@ -40,6 +40,7 @@ public class CreateRanTournament extends HttpServlet {
 			result.add(gson.toJson(vor.get(i)));
 		}
 		// 제이슨 구조로 바꾸고 싶은 형태를 넣는다
+		System.out.println(result);
 		out.print(result);
 		
 	

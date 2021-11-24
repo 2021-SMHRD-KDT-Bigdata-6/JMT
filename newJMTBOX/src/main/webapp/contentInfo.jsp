@@ -105,9 +105,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 
 
                                     <!-- Cart Button -->
-                                    <div class="cart-btn">
-                                        <p><span class="icon-shopping-cart"></span> <span class="quantity">1</span></p>
-                                    </div>
+                                 
                                 </div>
                             </div>
                             <!-- Nav End -->
@@ -419,10 +417,9 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                 <div class="col-12 col-md-6">
                     <div class="footer-nav">
                         <ul>
-                            <li><a href="Main.jsp">Home</a></li>
+                            <li><a href="main.jsp">Home</a></li>
                             <li><a href="tournament.jsp">Games</a></li>
-                            <li><a href="ContentInfo.jsp">Search</a></li>
-                            <li><a href="Mypage.jsp">My</a></li>
+                            <li><a href="contentInfo.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div>
