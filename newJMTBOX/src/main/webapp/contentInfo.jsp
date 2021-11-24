@@ -27,7 +27,7 @@
     font-style: normal;
 }
 html,body {
-	background-color: rgba(0, 0, 0, 0.95) !important;
+	background-color: rgba(0, 0, 0, 0.95);
 	width: 100%
 }
 

@@ -1939,7 +1939,7 @@ text-align:center;}
 
 
 
-/*¹è³Ê¼öÁ¤-·ç¸®*/
+/*ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½-ï¿½ç¸®*/
 .movie-detail{
 			font-family: 'Pretendard-Light';
             position:relative;
@@ -2004,7 +2004,7 @@ text-align:center;}
             
         }
  
-/*ÂòÇÏ±â ÁÁ¾Æ¿ä -·ç¸®*/
+/*ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ -ï¿½ç¸®*/
 .elements-section-padding-50-0{
 	padding-top:50px;
 	padding-bottom:0px;
@@ -2012,7 +2012,7 @@ text-align:center;}
 	
 	}
 
-/*¹öÆ° -·ç¸®*/
+/*ï¿½ï¿½Æ° -ï¿½ç¸®*/
 .elements-section-padding-0-50{
 	margin-top:50px;
 	margin-bottom:50px;
@@ -2021,9 +2021,9 @@ text-align:center;}
 	display:flex;
 	justify-content:center;
 }
-/*ÂùÀÍ*/
+/*ï¿½ï¿½ï¿½ï¿½*/
 
-/*+·ç¸®Ãß°¡*/
+/*+ï¿½ç¸®ï¿½ß°ï¿½*/
 .detail-container{
 	width: 100%;
     padding-right: 15px;
@@ -2096,7 +2096,7 @@ text-align:center;}
         padding-left:20px;
         border-bottom:1px solid;
     }
-    /*¸®ºä ³»¿ë*/
+    /*ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
     .section-padding-100 .movie-review-list-container .movie-review-list .movie-review-contents-wrap .review-content{
         height:100px;
         border-bottom: 1px solid;
@@ -2213,7 +2213,6 @@ body{
     .movie-review-list{
     	text-align:center;
     }
-
 
 
 
