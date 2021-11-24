@@ -127,7 +127,7 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
    	</div>
    		 <footer class="footer soff" id="footer">
 	    </footer>
-	<!-- ##### All Javascript Script ##### -->
+	 <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
@@ -138,13 +138,11 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    <script src="js/jquery/jquery-3.6.0.js"></script>
-    <script src="./js/lezhinGame.js" async defer></script>
-
     <script>
+
 	<%String tournament_id = request.getParameter("data");%>
 	let t_id = "<%=tournament_id%>";
-	
+	infoArr=[];
 	(function(){
 		console.log('함수 실행됨')
 		$.ajax({
@@ -153,20 +151,18 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
 			dataType : 'json',
 			success : function(jsArr){
 				console.log('성공')
-				infoArr = [];
-				for(let i = 0; i<jsArr.length; i++){
-					infoArr.push(JSON.parse(jsArr));
+				
+				for(let i = 0; i < jsArr.length; i++){
+					infoArr.push(JSON.parse(jsArr[i]));
 				}
 				
-				alert(infoArr[0].getStage());
+				alert(infoArr[0].stage);
 			},
 			error : function(){
 				console.log('error')
 			} 
 			
 		})
-		
-		
 		})()
 		
 
