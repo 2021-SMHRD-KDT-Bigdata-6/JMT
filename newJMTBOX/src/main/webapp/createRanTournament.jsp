@@ -115,34 +115,24 @@ response.setCharacterEncoding("utf-8");
     <![endif]-->
     <h3 id="roundTitle"></h3>
    	<div class="content-default" id="content">
-     	<button id="btnGameStart">Game Start</button>
+  
    	</div>
    		 <footer class="footer soff" id="footer">
-        <button id="cancel" onclick="lezhin.Event.clickCancel()">취소</button>
-        <button id="prev" onclick="lezhin.Event.clickPrev()">이전</button>
-    
-    </footer>
+	    </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="./js/lezhinGame.js" async defer></script>
 
     <script>
     
-    temp = {};
-    t_contentInfo={};
     
     (function() {
     	  $.ajax({
-    		  url : 'http://localhost:8082/newJMTBOX/CreateRanTournament',
+    		  url : 'CreateRanTournament',
     		  dataType : 'json',
     		  success : function(result){
-    			 temp = result;
     			 lezhin.start(result);
-    			 
-    			 for(let i = 0; i < temp.length; i++){
-    		    	  t_contentInfo.push(JSON.parse(temp[i]));
-    		    	  console.log(t_contentInfo)
-    		  	}
-    		  }, error : function(){
+    		  }, 
+    		  error : function(){
     			  alert('실패!')
     		  }
     	  })
