@@ -30,6 +30,10 @@
 	height : 40% !important;
 	margin-right : 20% !important;
 	}
+	
+	.footer-area{
+	bottom : -120px;
+	}
 </style>
 
 
@@ -52,7 +56,7 @@
 	                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
 	                       <!-- Nav brand -->
-	                        <a href="main.jsp.html" class="nav-brand"><img src="../img/bg-img/logo.png" alt=""></a>
+	                        <a href="../main.jsp" class="nav-brand"><img src="../img/bg-img/logo.png" alt=""></a>
 
 	                        <!-- Navbar Toggler -->
 	                        <div class="classy-navbar-toggler">
@@ -72,9 +76,9 @@
 	                                <ul>
 	                                    <li><a href="../main.jsp">Home</a></li>
 	                                    <li><a href="../tournament.jsp">Game</a></li>
-	                                    <li><a href="../search.jsp">Search</a></li>
+	                                    <li><a href="../contentInfo.jsp">Search</a></li>
 	                                    <%if(vo!=null){ %>
-	                                    <li><a href="../myPages/myPage.jsp">My</a></li>
+	                                    <li><a href="myPage.jsp">My</a></li>
 	                                    <%} %>
 	                                </ul>
 
@@ -172,21 +176,20 @@
 	</section>
 	
 	    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
+    <footer class="footer-area" >
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><img src="../img/bg-img/logo.png" alt=""></a>
+                    <a href="main.jsp"><img src="../img/bg-img/logo.png" alt=""></a>
 
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="footer-nav">
                         <ul>
-                            <li><a href="Main.jsp">Home</a></li>
-                            <li><a href="tournament.jsp">Games</a></li>
-                            <li><a href="ContentInfo.jsp">Search</a></li>
-                            <li><a href="Mypage.jsp">My</a></li>
+                            <li><a href="../main.jsp">Home</a></li>
+                            <li><a href="../tournament.jsp">Games</a></li>
+                            <li><a href="../contentInfo.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div>
