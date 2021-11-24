@@ -41,6 +41,30 @@ public class TournamentDAO {
 	}
 	
 	
-	
+	// 2.토너먼트 게임위한 기본 정보 받아오기
+	public ArrayList<TournamentVO> initialGameInfo(int tournament_id) {
+		j.conn();
+		ArrayList<TournamentVO> initialGameInfoList = new ArrayList<>();
+		TournamentVO vo = null;
+		
+		try {
+			sql = "select * from tour_contents where tournament_id = ?";
+			
+			psmt = j.conn.prepareStatement(sql);
+			psmt.setInt(1, tournament_id);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				vo = new TournamentVO(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getString(6), rs.getString(7));
+				initialGameInfoList.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return initialGameInfoList;
+	}
 	
 }

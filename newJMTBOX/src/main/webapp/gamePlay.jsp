@@ -12,7 +12,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>One Music - Modern Music HTML5 Template</title>
+    <title>JMT BOX SELECT TODAY'S CONTENTS BY TOURNAMENTGAME</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
@@ -60,23 +60,31 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
 	                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
 	                            </div>
 
-	                            <!-- Nav Start -->
-	                            <div class="classynav">
-	                                <ul>
-	                                    <li><a href="main.jsp">Home</a></li>
-	                                    <li><a href="tournament.jsp">Game</a></li>
-	                                    <li><a href="search.jsp">Search</a></li>
-	                                    <%if(vo!=null){ %>
-	                                    <li><a href="myPages/myPage.jsp">My</a></li>
-	                                    <%} %>
-	                                </ul>
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="main.jsp">Home</a></li>
+                                    <li><a href="#">Game</a>
+                                   		<ul class="dropdown">
+                                        	<li><a href="game.jsp">All game</a></li>
+                                            <li><a href="gameRanPlay.jsp">Random game</a></li>
+                                            <li><a href="gameMake.jsp">Make game</a></li>
+                                    	</ul>
+                                   	</li>
+                                    <li><a href="contentInfo.jsp">Search</a></li>
+                                    <%if(vo!=null){ %>
+                                    <li><a href="myPages/myPage.jsp">My</a></li>
+                                    <%} %>
+                                </ul>
 
-	                                <!-- Login/Register & Cart Button -->
+								<!-- Login/Register & Cart Button -->
 	                                <div class="login-register-cart-button d-flex align-items-center">
 	                                    <!-- Login/Register -->
 	                                    
 	                                    <div class="login-register-btn mr-50">
-	                                    <%if(vo==null){ %>
+	                                    <%
+	                                    if (vo == null) {
+	                                    %>
 	                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
 	                                        <%}else{%>
 	                                        <a href="Logout.do" id="logoutBtn">Logout</a>
@@ -108,6 +116,8 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
 	<!-- ##### Breadcumb Area End ##### -->
 
    
+   
+   
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -117,35 +127,7 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
    	</div>
    		 <footer class="footer soff" id="footer">
 	    </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="./js/lezhinGame.js" async defer></script>
-
-    <script>
-       
-    (function() {
-    	  $.ajax({
-    		  url : 'EnjoyRantournament',
-    		 // data : {"tournament_name" : "명작랜덤", "member_id" : m_id },
-    		  dataType : 'json',
-    		  
-    		  success : function(result){
-    			 lezhin.start(result);
-    		  }, 
-    		  error : function(){
-    			  alert('실패!')
-    		  }
-    	  })
-      })()
-      
-     
-      
-      
-      
-      
-    </script>
-
-
-    <!-- ##### All Javascript Script ##### -->
+	<!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
@@ -156,6 +138,47 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script src="js/jquery/jquery-3.6.0.js"></script>
+    <script src="./js/lezhinGame.js" async defer></script>
+
+    <script>
+	<%String tournament_id = request.getParameter("data");%>
+	let t_id = "<%=tournament_id%>";
+	
+	(function(){
+		console.log('함수 실행됨')
+		$.ajax({
+			url : 'InitialGameInfo',
+			data : {'data' : t_id},
+			dataType : 'json',
+			success : function(jsArr){
+				console.log('성공')
+				infoArr = [];
+				for(let i = 0; i<jsArr.length; i++){
+					infoArr.push(JSON.parse(jsArr));
+				}
+				
+				alert(infoArr[0].getStage());
+			},
+			error : function(){
+				console.log('error')
+			} 
+			
+		})
+		
+		
+		})()
+		
+
+     
+      
+      
+      
+      
+    </script>
+
+
+    
 </body>
 
 </html>

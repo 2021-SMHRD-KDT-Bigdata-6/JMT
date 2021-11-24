@@ -4,28 +4,26 @@ import java.util.Date;
 
 public class TournamentVO {
 	private int tournamentId;
-	private String tournamentName;
 	private int stage;
 	private int jo;
 	private int isright;
+	private int content_id;
 	private String tournamentFile;
-	//private String title;
-	private Date t_Date;
-	private int memberId;
-	//private int tournamentDone;
-	private int partyCnt;
-	private int tLike;
-	private int tShare;
-	private int tournament_point;
-	private String thumbnail;
-	
-	
-	
-	public TournamentVO() {
-		
-	}
+	private String title;
 
-	
+	private String tournamentName;
+	private int memberId;
+	private Date t_Date;
+	private int t_join;
+	private int t_like;
+	private int t_share;
+	private String thumbnail;
+	private int tournament_point;
+	// private int tournamentDone;
+
+	public TournamentVO() {
+
+	}
 
 	public TournamentVO(int tournamentId, String tournamentName, String thumbnail) {
 		super();
@@ -33,8 +31,6 @@ public class TournamentVO {
 		this.tournamentName = tournamentName;
 		this.thumbnail = thumbnail;
 	}
-
-
 
 	public TournamentVO(int stage, int jo, int isright, String tournamentFile) {
 		super();
@@ -44,180 +40,136 @@ public class TournamentVO {
 		this.tournamentFile = tournamentFile;
 	}
 
-
-
-	public TournamentVO(int tournamentId, String tournamentName, int stage, int jo, int isright, String tournamentFile,
-			Date t_Date, int memberId, int partyCnt, int tLike, int tShare, int tournament_point) {
+	public TournamentVO(int tournamentId, int stage, int jo, int isright, int content_id, String tournamentFile,
+			String title) {
 		super();
 		this.tournamentId = tournamentId;
-		this.tournamentName = tournamentName;
 		this.stage = stage;
 		this.jo = jo;
 		this.isright = isright;
+		this.content_id = content_id;
 		this.tournamentFile = tournamentFile;
-		this.t_Date = t_Date;
-		this.memberId = memberId;
-		this.partyCnt = partyCnt;
-		this.tLike = tLike;
-		this.tShare = tShare;
-		this.tournament_point = tournament_point;
+		this.title = title;
 	}
-
-
-
-	public String getThumbnail() {
-		return thumbnail;
-	}
-
-
-
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
-	}
-
-
 
 	public int getTournamentId() {
 		return tournamentId;
 	}
 
-
-
 	public void setTournamentId(int tournamentId) {
 		this.tournamentId = tournamentId;
 	}
-
-
-
-	public String getTournamentName() {
-		return tournamentName;
-	}
-
-
-
-	public void setTournamentName(String tournamentName) {
-		this.tournamentName = tournamentName;
-	}
-
-
 
 	public int getStage() {
 		return stage;
 	}
 
-
-
 	public void setStage(int stage) {
 		this.stage = stage;
 	}
-
-
 
 	public int getJo() {
 		return jo;
 	}
 
-
-
 	public void setJo(int jo) {
 		this.jo = jo;
 	}
-
-
 
 	public int getIsright() {
 		return isright;
 	}
 
-
-
 	public void setIsright(int isright) {
 		this.isright = isright;
 	}
 
+	public int getContent_id() {
+		return content_id;
+	}
 
+	public void setContent_id(int content_id) {
+		this.content_id = content_id;
+	}
 
 	public String getTournamentFile() {
 		return tournamentFile;
 	}
 
-
-
 	public void setTournamentFile(String tournamentFile) {
 		this.tournamentFile = tournamentFile;
 	}
 
-
-
-	public Date getT_Date() {
-		return t_Date;
+	public String getTitle() {
+		return title;
 	}
 
-
-
-	public void setT_Date(Date t_Date) {
-		this.t_Date = t_Date;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
+	public String getTournamentName() {
+		return tournamentName;
+	}
 
+	public void setTournamentName(String tournamentName) {
+		this.tournamentName = tournamentName;
+	}
 
 	public int getMemberId() {
 		return memberId;
 	}
 
-
-
 	public void setMemberId(int memberId) {
 		this.memberId = memberId;
 	}
 
-
-
-	public int getPartyCnt() {
-		return partyCnt;
+	public Date getT_Date() {
+		return t_Date;
 	}
 
-
-
-	public void setPartyCnt(int partyCnt) {
-		this.partyCnt = partyCnt;
+	public void setT_Date(Date t_Date) {
+		this.t_Date = t_Date;
 	}
 
-
-
-	public int gettLike() {
-		return tLike;
+	public int getT_join() {
+		return t_join;
 	}
 
-
-
-	public void settLike(int tLike) {
-		this.tLike = tLike;
+	public void setT_join(int t_join) {
+		this.t_join = t_join;
 	}
 
-
-
-	public int gettShare() {
-		return tShare;
+	public int getT_like() {
+		return t_like;
 	}
 
-
-
-	public void settShare(int tShare) {
-		this.tShare = tShare;
+	public void setT_like(int t_like) {
+		this.t_like = t_like;
 	}
 
+	public int getT_share() {
+		return t_share;
+	}
 
+	public void setT_share(int t_share) {
+		this.t_share = t_share;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
 
 	public int getTournament_point() {
 		return tournament_point;
 	}
 
-
-
 	public void setTournament_point(int tournament_point) {
 		this.tournament_point = tournament_point;
 	}
-	
-	
+
 }

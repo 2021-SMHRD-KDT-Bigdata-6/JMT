@@ -89,12 +89,12 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                 <ul>
                                     <li><a href="main.jsp">Home</a></li>
                                     <li><a href="#">Game</a>
-                                    <ul class="dropdown">
-                                            <li><a href="game.jsp">All game</a></li>
-                                            <li><a href="gameRanPlay.jsp">Play Random game</a></li>
+                                   		<ul class="dropdown">
+                                        	<li><a href="game.jsp">All game</a></li>
+                                            <li><a href="gameRanPlay.jsp">Random game</a></li>
                                             <li><a href="gameMake.jsp">Make game</a></li>
-                                    </ul>
-                                   </li>
+                                    	</ul>
+                                   	</li>
                                     <li><a href="contentInfo.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
@@ -225,8 +225,8 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 							onClick="location.href='movieDetail.jsp'">
 							<div class="single-album-container">
 								<div class="img-center">
-									<a href="gamePlay.jsp?data=<%=i.getThumbnail()%>"> <img
-										src="<%=i.getThumbnail()%>" alt="">
+									<a href="gamePlay.jsp?data=<%=i.getTournamentId()%>"> 
+									<img src="<%=i.getThumbnail()%>" alt="">
 									</a>
 								</div>
 							</div>
