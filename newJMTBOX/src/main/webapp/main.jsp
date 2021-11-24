@@ -36,13 +36,13 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 	ContentVO cvo = new ContentVO();
 	ContentDAO dao = new ContentDAO();
 	//얘는 최신content
-	ArrayList<ContentVO> list = null;
+	ArrayList<ContentVO> newList = null;
 	
-	list = dao.showLatestContents();
+	newList = dao.showLatestContents();
 	
 	//얘는 hot content
-	ArrayList<ContentVO> hlist = null;
-	hlist = dao.showHotContents();
+	ArrayList<ContentVO> hotList = null;
+	hotList = dao.showHotContents();
 	
 %>
     <!-- Preloader -->
@@ -225,215 +225,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                             </div>
                         </div>
 
-                        <!-- List 2 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a2.jpg" alt="">
-                            	</div>
-                            </div>
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Sam Smith</h5>
-                                </a>
-                                <p>Underground</p>
-                            </div>
-                        </div>
-
-                        <!-- List 3 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                           			 <img src="img/bg-img/a3.jpg" alt="">
-                           		</div>
-                            </div>	 
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Will I am</h5>
-                                </a>
-                                <p>First</p>
-                            </div>
-                        </div>
-
-                        <!-- List 4 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a4.jpg" alt="">
-                            	</div>
-                            </div>
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Cure</h5>
-                                </a>
-                                <p>Second Song</p>
-                            </div>
-                        </div>
-
-                        <!-- List 5 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                           			 <img src="img/bg-img/a5.jpg" alt="">
-                           		</div>
-                            </div>	 
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>DJ SMITH</h5>
-                                </a>
-                                <p>The Album</p>
-                            </div>
-                        </div>
-
-                        <!-- List 6 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a6.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-
-                        <!-- List 7 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                           			 <img src="img/bg-img/a7.jpg" alt="">
-                           		</div>
-                            </div>
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Beyonce</h5>
-                                </a>
-                                <p>Songs</p>
-                            </div>
-                        </div>
                         
-                        <!-- List 8 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a8.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-                        
-                        <!-- List 9 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a9.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-                        
-                        <!-- List 10 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a10.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-                        
-                        <!-- List 11 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a11.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-                        
-                        <!-- List 12 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a12.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-                        
-                        <!-- List 13 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a13.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-                        
-                        <!-- List 14 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a14.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
-                        
-                        <!-- List 15 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a15.jpg" alt="">
-                            	</div>
-                            </div>	
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>The Ustopable</h5>
-                                </a>
-                                <p>Unplugged</p>
-                            </div>
-                        </div>
                         
                         
                     </div>
@@ -469,14 +261,13 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                         <div class="single-album">
                         	<div class="single-album-container">
                         		<div class="img-center">
-                           	 		<img src="<%=hlist.get(i).getC_thumbnail() %>" alt="">
+                           	 		<img src="<%=hotList.get(i).getC_thumbnail() %>" alt="">
                             	</div>
                             </div>
                             <div class="album-info">
                                 <a href="#">
-                                    <h5><%=hlist.get(i).getTitle() %></h5>
+                                    <h5><%=hotList.get(i).getTitle() %></h5>
                                 </a>
-                                <p><%=hlist.get(i).getPlatform() %></p>
                             </div>
                         </div>
                         <%} %>
@@ -518,14 +309,13 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                         <div class="single-album">
                         	<div class="single-album-container">
                         		<div class="img-center">
-                           	 		<img src="<%=list.get(i).getC_thumbnail() %>" alt="">
+                           	 		<img src="<%=newList.get(i).getC_thumbnail() %>" alt="">
                             	</div>
                             </div>
                             <div class="album-info">
                                 <a href="#">
-                                    <h5><%= list.get(i).getTitle() %></h5>
+                                    <h5><%= newList.get(i).getTitle() %></h5>
                                 </a>
-                                <p>Second Song</p>
                             </div>
                         </div>
                         <% } %>
