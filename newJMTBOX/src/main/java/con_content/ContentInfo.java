@@ -22,7 +22,7 @@ public class ContentInfo extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		String content_id = request.getParameter("content_id");
+		int content_id = Integer.parseInt(request.getParameter("content_id"));
 		PrintWriter out = response.getWriter();
 
 		ContentDAO dao = new ContentDAO();
