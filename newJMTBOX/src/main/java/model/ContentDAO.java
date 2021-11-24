@@ -157,6 +157,28 @@ public class ContentDAO {
 		}
 		return al;
 	}
+	public ArrayList<ContentVO> contents_b(String title, String c_thumbnail) {
+		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
+		ContentVO vo = null;
+		try {
+			j.conn();
+			String sql = "SELECT title, c_thumbnail from (select * from contents ORDER BY dbms_random.value) where rownum <= 100 and content_id in('3829', '3675', '3712', '3658', '3843', '3614', '3746', '3687', '3647', '3858', '3824', '3754', '3724', '3844', '3655', '3859')";
+			psmt = j.conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				title = rs.getString("title");
+				c_thumbnail = rs.getString("c_thumbnail");
+				
+				vo = new ContentVO(title, c_thumbnail);
+				al.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			j.close();
+		}
+		return al;
+	}
 	
 	
 	
