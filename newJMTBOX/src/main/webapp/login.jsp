@@ -140,9 +140,9 @@
                             <li><a href="main.jsp">Home</a></li>
                              <li><a href="#">Game</a>
                                     		<ul class="dropdown">
-                                            <li><a href="tournament.jsp">All tournament</a></li>
-                                            <li><a href=".jsp">Random tournament</a></li>
-                                            <li><a href=".jsp">Make tournament</a></li>
+                                            <li><a href="tournament.jsp">All game</a></li>
+                                            <li><a href=".jsp">Random game</a></li>
+                                            <li><a href=".jsp">Make game</a></li>
                                     </ul>
                                   </li>
                             <li><a href="contentInfo.jsp">Search</a></li>
