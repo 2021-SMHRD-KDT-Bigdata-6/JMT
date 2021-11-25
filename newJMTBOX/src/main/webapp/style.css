@@ -861,7 +861,8 @@ img {
     .single-album .album-info h5 {
       font-size: 18px;
       margin-bottom: 0;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      font-family: 'Pretendard-Light' }
     .single-album .album-info p {
       margin-bottom: 0; }
   .single-album:hover, .single-album:focus {
@@ -1848,8 +1849,7 @@ h3 {padding:5px 10px;
 	display:flex;
  	 justify-content:center;
  	 align-items:center;
-  	margin-left:10%;
-  	width: 80%;
+  	width: 100%;
   	min-height:300px;
 	padding: 3% 0;
 	padding-bottom:20%;}
@@ -1894,7 +1894,7 @@ h3 {padding:5px 10px;
 .list_ideal {
 	display:flex;
 	justify-content:space-evenly;
-	width:100%;}
+	width:40%;}
 .list_ideal li {
   width:30%;
   max-width: 50%;
@@ -1908,7 +1908,9 @@ h3 {padding:5px 10px;
   background-color: #fff;
   background-clip: border-box;
   border-radius: .25rem;
-  justify-content:space-evenly
+  justify-content:space-evenly;
+  margin-right: 10%;
+  margin-left: 10%;
 }
 
 .thumb>video{
