@@ -325,7 +325,7 @@ padding-left:0px !important;}
                     <div class="albums-slideshow owl-carousel">
                        <!-- List 1 -->
                        <%for (int i=0; i<TourList.size();i++){ %>
-                        <div class="single-album">
+                        <div class="single-album" onClick="location.href='gamePlay.jsp?content_id=<%=TourList.get(i).getTournamentId()%>'">
                         	<div class="single-album-container">
                         		<div class="img-center">
                            	 		<img src="<%=TourList.get(i).getThumbnail() %>" alt="">
@@ -371,7 +371,7 @@ padding-left:0px !important;}
                 <div class="reviewsection">
                     <div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="true">
                         <!-- single accordian area -->
-                       <%for(int i = 0; i<ReviewList.size();i++) {%>
+                      
                         <div class="panel single-accordion">
                         
                             <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><%=ReviewList.get(0).getMemberId() %>
@@ -379,12 +379,24 @@ padding-left:0px !important;}
                                     <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                                     </a></h6>
                             <div id="collapseOne" class="accordion-content collapse show">
-                                <p><%=ReviewList.get(i).getReview() %>
+                                <p><%=ReviewList.get(0).getReview() %>
                                 </p>
                             </div>
                         </div>
-                        <%} %>
                        
+                        <%for(int i = 1; i<ReviewList.size();i++) {%>
+                        <div class="panel single-accordion">
+                            <h6>
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo"><%=ReviewList.get(0).getMemberId() %>
+                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                        </a>
+                            </h6>
+                            <div id="collapseTwo" class="accordion-content collapse">
+                                <p><%=ReviewList.get(i).getReview() %></p>
+                            </div>
+                        </div>
+                       <%} %>
                         
                     </div>
                 </div>

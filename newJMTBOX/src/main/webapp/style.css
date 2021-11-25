@@ -1737,11 +1737,13 @@ img {
         border: 1.5px solid #575756;
         float:left;
         z-index:1;
+        font-family: "Pretendard-Light";
 	}
 		.search-input::placeholder{
 		text-align:center;
 		font-size:30px;
 		z-index:2;
+		font-family: "Pretendard-Light";
 		}
 	
 .search-container .search-box .searchbtn{
