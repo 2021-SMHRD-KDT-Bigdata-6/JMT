@@ -213,7 +213,7 @@ if(!window['lezhin']) {
         let key, roundDiv, imgObj, roundTitleDiv, roundImgWrapDiv;
         let historyTitleDiv = document.createElement('DIV');
         historyTitleDiv.className = 'tit';
-        historyTitleDiv.innerText = '히스토리';
+        //historyTitleDiv.innerText = '히스토리';
         tObj.appendChild(historyTitleDiv);
         let wrapDiv = document.createElement('DIV');
         wrapDiv.className = 'history_box';
@@ -259,9 +259,9 @@ if(!window['lezhin']) {
           `;
           if(_O.Vars.curRound === 1) {
             s += `
-            <li id="history">
+          <!--  <li id="history">
               <a class="modal final" id="modal" href="javascript:void(0);"></a>
-            </li>
+            </li> -->
             `;
           }
         }
