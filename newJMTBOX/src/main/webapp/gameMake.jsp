@@ -42,11 +42,23 @@
 	}
 	
 	</style>
+	<script src='js/jquery/jquery-3.6.0.js'></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+				searchajax();
+		});
+	</script>
+	
 </head>
 <body>
 <%
-MemberVO vo = (MemberVO)session.getAttribute("member");
-
+	MemberVO vo = (MemberVO)session.getAttribute("member");
+	String member_id = null;
+	if (vo == null) {
+		member_id = "guest";
+	} else {
+		member_id = "guest";
+	}
 	//hot content ==> 검색하면 바꾸는걸로 바꿔야됨 이미지 나오는지 확인용!!
 	request.setCharacterEncoding("UTF-8");
 	response.setCharacterEncoding("UTF-8");
@@ -189,13 +201,16 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 				</div>
 				<div class="search-box-make">
 					<!-- 검색 name값을 content_id로 잡아야하나?.. -->
-					<input class="search" type="text" placeholder="작품제목 및 태그 입력"
+					<input id="#searchWord" class="search" type="text" placeholder="작품제목 및 태그 입력"
 						name="search">
-					
 				</div>
-			
-		</div>
+				<div class='row'>
 
+
+
+				</div>
+		</div>
+		
 
 	</section>
 	<!-- 우리작품이 뜨는 칸 (예시 latest-album에서가져와야되나? -->
@@ -272,7 +287,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
+<!-- Popper js -->
     <script src="js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
     <script src="js/bootstrap/bootstrap.min.js"></script>
@@ -281,6 +296,59 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
     <!-- Active js -->
     <script src="js/active.js"></script>
     <script>
+    
+    	let m_id = "<%=member_id%>";
+		
+		let searchResult =[];
+		function searchajax(){
+			$("#searchWord").keyup(function(){
+				let words = $("#searchWord").val();
+				if(words != ''){
+					$.ajax({
+						url : 'SearchConByTitleOrTag',
+						data : {searchWords : words},
+						dataType : 'json',
+						success : function(result){
+							if(result.length>0){
+								
+								for(let i = 0; i < result.length; i++){
+			      					searchResult.push(JSON.parse(result[i]));
+			      					}
+								let str = ''
+								for (let i=0; i<result.length; i++){
+									
+									
+									
+									
+									
+									
+									str += '<div id="results" class='single-album'>\
+									<div class="single-album-container">\
+									<div class="img-center">\
+										<a href='#'>
+										<img src="" alt=''>
+										</a>
+									</div>
+								</div>
+								<div class='album-info'>
+										<p>"hi"</p>
+								</div>
+							</div><p><img src='+searchResult[i].c_thumbnail+'></p><p>'+searchResult[i].title+'</p>';
+								}
+								$('#results').append(str);
+									
+							}else{$("#results").append("");}
+						},
+						error : function(e){
+							console.log('error'+e.status);
+						}
+					})
+				}else{$("#results").html("")}
+			});
+		}
+   
+    
+    
     	const Searching = Search.prototype;
     	
     	function Search(){
