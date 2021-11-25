@@ -134,12 +134,12 @@ padding-left:0px !important;}
                                     <li><a href="main.jsp">Home</a></li>
                                     <li><a href="#">Game</a>
                                     		<ul class="dropdown">
-                                            <li><a href="tournament.jsp">All game</a></li>
-                                            <li><a href=".jsp">Random game</a></li>
-                                            <li><a href=".jsp">Make game</a></li>
+                                            <li><a href="gameAll.jsp">All game</a></li>
+                                            <li><a href="gameRanPlay.jsp">Random game</a></li>
+                                            <li><a href="gameMake.jsp">Make game</a></li>
                                     </ul>
                                   </li>
-                                    <li><a href="search.jsp">Search</a></li>
+                                    <li><a href="albums-store.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
                                     <%} %>
@@ -148,7 +148,8 @@ padding-left:0px !important;}
                                 <!-- Login/Register & Cart Button -->
                                 <div class="login-register-btn mr-50">
                                     <%if(vo==null){ %>
-                                        <a href="login.jsp" id="loginBtn"style="color:white;">Login / Register</a>
+                                        <a href="login.jsp" id="loginBtn"style="color:white;">Login / </a> 
+                                        <a href="Register.jsp" id="loginBtn"style="color:white;">Register</a>
                                         <%}else{%>
                                         <a href="Logout.do" id="logoutBtn"style="color:white;">Logout</a>
                                         <% } %>
@@ -422,8 +423,8 @@ padding-left:0px !important;}
                     <div class="footer-nav">
                         <ul>
                             <li><a href="main.jsp">Home</a></li>
-                            <li><a href="tournament.jsp">Games</a></li>
-                            <li><a href="contentInfo.jsp">Search</a></li>
+                            <li><a href="gameAll.jsp">Games</a></li>
+                            <li><a href="albums-store.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div>
