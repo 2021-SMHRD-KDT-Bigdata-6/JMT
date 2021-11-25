@@ -71,7 +71,7 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
                                             <li><a href="gameMake.jsp">Make game</a></li>
                                     	</ul>
                                    	</li>
-                                    <li><a href="contentInfo.jsp">Search</a></li>
+                                    <li><a href="albums-store.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
                                     <%} %>
@@ -85,9 +85,10 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
 	                                    <%
 	                                    if (vo == null) {
 	                                    %>
-	                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
+	                                        <a href="login.jsp" id="loginBtn">Login / </a> 
+                                        	<a href="Register.jsp" id="loginBtn">Register</a>
 	                                        <%}else{%>
-	                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+	                                        <a href="Logout" id="logoutBtn">Logout</a>
 	                                        <% } %>
 	                                    </div>
 

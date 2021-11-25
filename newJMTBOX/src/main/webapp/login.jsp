@@ -61,8 +61,8 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="main.jsp">Home</a></li>   
-                                    <li><a href="tournament.jsp">Game</a></li>
-                                    <li><a href="search.jsp">Search</a></li>
+                                    <li><a href="gameAll.jsp">Game</a></li>
+                                    <li><a href="albums-store.jsp">Search</a></li>
                                 </ul>
 
                                 <!-- Login/Register & Cart Button -->
@@ -145,7 +145,7 @@
                                             <li><a href="gameMake.jsp">Make game</a></li>
                                     </ul>
                                   </li>
-                            <li><a href="contentInfo.jsp">Search</a></li>
+                            <li><a href="albums-store.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div>

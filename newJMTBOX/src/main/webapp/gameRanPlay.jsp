@@ -64,8 +64,8 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
 	                            <div class="classynav">
 	                                <ul>
 	                                    <li><a href="main.jsp">Home</a></li>
-	                                    <li><a href="tournament.jsp">Game</a></li>
-	                                    <li><a href="search.jsp">Search</a></li>
+	                                    <li><a href="gameAll.jsp">Game</a></li>
+	                                    <li><a href="albums-Store.jsp">Search</a></li>
 	                                    <%if(vo!=null){ %>
 	                                    <li><a href="myPages/myPage.jsp">My</a></li>
 	                                    <%} %>
@@ -77,9 +77,10 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
 	                                    
 	                                    <div class="login-register-btn mr-50">
 	                                    <%if(vo==null){ %>
-	                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
+	                                        <a href="login.jsp" id="loginBtn">Login / </a> 
+                                        	<a href="Register.jsp" id="loginBtn">Register</a>
 	                                        <%}else{%>
-	                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+	                                        <a href="Logout" id="logoutBtn">Logout</a>
 	                                        <% } %>
 	                                    </div>
 
