@@ -220,8 +220,8 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 						<!-- List 1 -->
 						<%
 						for (TournamentVO i : hotTourList) {
-						%>
-						<div class="single-album" onClick="location.href='movieDetail.jsp'">
+						%> 
+						<div class="single-album" onClick="location.href='gamePlay.jsp?content_id=<%=i.getTournamentId()%>'">
 							<div class="single-album-container">
 								<div class="img-center">
 									<a href="gamePlay.jsp?data=<%=i.getTournamentId()%>"> 
@@ -318,7 +318,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                 <div class="col-12">
                     <div class="albums-slideshow owl-carousel">
                        <!-- List 1 -->
-                       <% for(int i = 0; i < 15; i++){ %>
+                       <% for(int i = 0; i < newList.size(); i++){ %>
                         <div class="single-album">
                         	<div class="single-album-container">
                         		<div class="img-center">

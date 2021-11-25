@@ -1,3 +1,5 @@
+<%@page import="model.TournamentVO"%>
+<%@page import="model.TournamentDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.ReviewVO"%>
 <%@page import="model.ReviewDAO"%>
@@ -75,8 +77,20 @@ padding-left:0px !important;}
 	ArrayList<ReviewVO> ReviewList = null; 
 	
 	
-	//ReviewList= revDao.showReviewList(content_id);
-	//리뷰 contetn_id 인트형태 아님
+	ReviewList= revDao.showReviewList(content_id+"");
+	//리뷰 contetn_id 인트형태 아님 +""붙이면 된대요~!
+	
+	
+	//토너먼트=> 작품이 포함된건 Dao 만들어야하나?
+	TournamentDAO tourDao = new TournamentDAO();
+	TournamentVO tourVo = new TournamentVO();
+	
+	ArrayList<TournamentVO> TourList=null;
+	
+	TourList=tourDao.showThisContentTournament(content_id);
+
+	
+	
 	
 %>
     <!-- Preloader -->
@@ -134,9 +148,9 @@ padding-left:0px !important;}
                                 <!-- Login/Register & Cart Button -->
                                 <div class="login-register-btn mr-50">
                                     <%if(vo==null){ %>
-                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
+                                        <a href="login.jsp" id="loginBtn"style="color:white;">Login / Register</a>
                                         <%}else{%>
-                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+                                        <a href="Logout.do" id="logoutBtn"style="color:white;">Logout</a>
                                         <% } %>
                                     </div>
 
@@ -161,7 +175,7 @@ padding-left:0px !important;}
 			<form action="movieDetail.jsp">
 				<div class="search-box">
 					<!-- 검색 name값을 content_id로 잡아야하나?.. -->
-					<input class="search-input" type="text" placeholder="Search"
+					<input class="search-input" type="text" placeholder="<%=conVo.getTitle() %>"
 						name="search">
 					<button class="searchbtn" name = "click" onClick="location.href='movieDetail.jsp'">
 					</button>
@@ -310,60 +324,20 @@ padding-left:0px !important;}
                 <div class="col-12">
                     <div class="albums-slideshow owl-carousel">
                        <!-- List 1 -->
+                       <%for (int i=0; i<TourList.size();i++){ %>
                         <div class="single-album">
                         	<div class="single-album-container">
                         		<div class="img-center">
-                           	 		<img src="img/bg-img/a1.jpg" alt="">
+                           	 		<img src="<%=TourList.get(i).getThumbnail() %>" alt="">
                             	</div>
                             </div>
                             <div class="album-info">
                                 <a href="#">
-                                    <h5>Title</h5>
+                                    <h5><%=TourList.get(i).getTournamentName() %></h5>
                                 </a>
                             </div>
                         </div>
-
-                        <!-- List 2 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a2.jpg" alt="">
-                            	</div>
-                            </div>
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Title</h5>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- List 3 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                           			 <img src="img/bg-img/a3.jpg" alt="">
-                           		</div>
-                            </div>	 
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Title</h5>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- List 4 -->
-                        <div class="single-album">
-                        	<div class="single-album-container">
-                        		<div class="img-center">
-                            		<img src="img/bg-img/a4.jpg" alt="">
-                            	</div>
-                            </div>
-                            <div class="album-info">
-                                <a href="#">
-                                    <h5>Title</h5>
-                                </a>
-                            </div>
-                        </div>
+						<%} %>
                         
                         
                     </div>
@@ -397,48 +371,21 @@ padding-left:0px !important;}
                 <div class="reviewsection">
                     <div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="true">
                         <!-- single accordian area -->
-                       
+                       <%for(int i = 0; i<ReviewList.size();i++) {%>
                         <div class="panel single-accordion">
                         
-                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">rr
+                            <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><%=ReviewList.get(0).getMemberId() %>
                                     <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                     <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                                     </a></h6>
                             <div id="collapseOne" class="accordion-content collapse show">
-                                <p>
-                                    안됨
-                                
-
-
+                                <p><%=ReviewList.get(i).getReview() %>
                                 </p>
                             </div>
                         </div>
+                        <%} %>
                        
-                        <!-- single accordian area -->
-                        <div class="panel single-accordion">
-                            <h6>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo">Myeong
-                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                        </a>
-                            </h6>
-                            <div id="collapseTwo" class="accordion-content collapse">
-                                <p>마블 세계관의 미래에 필수적인 영화이며, 새로운 컨셉을 제시한 것- 한국 팬들은 여러가지로 만족할 것아이언맨이나 어벤져스, 토르 컨셉에 익숙한 마블팬들은 좀 다르게 느껴질 수도 있으나, 장기적 빅픽쳐를 이미 그려놓고 가는 마블 입장에서 새로운 스타일을 제시해서 의미가 큼. 이것이 변혁이자 도전인 것이고 시대의 변화를 잘 반영한 것임. 이터널스가 어벤져스랑 비슷했다면 아마 식상함과 혁신부족인 아이폰이라 했었을거임. P.s. 어벤져스1도 이거저거 모아놔서 아이언맨만 못하다고 비판받던 시절이 있었는데, 마블의 큰 그림흐름 속에 결국 인정</p>
-                            </div>
-                        </div>
                         
-                        <!-- single accordian area -->
-                        <div class="panel single-accordion">
-                            <h6>
-                                <a role="button" aria-expanded="true" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree">EunS
-                                        <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                                        <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                    </a>
-                            </h6>
-                            <div id="collapseThree" class="accordion-content collapse">
-                                <p> 시사회로 봤습니다 영화자체가 기존 마블영화랑 다르게 천천히 진행되다보니 루즈하다고 느낄수 있지만 많은 케릭터다보니 한명한명을 매력적으로 구축하기위한 영화다보니 그런거같네요 그래서 명감독을 뽑은거 같기도 하고요 풍경도 아름답고 각각의 캐릭터들이 매력적이라 재밌었습니다</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
              </div>
