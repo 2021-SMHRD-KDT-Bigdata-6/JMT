@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="model.TournamentVO"%>
+<%@page import="model.TournamentDAO"%>
 <%@page import="model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -43,7 +46,15 @@
 
 <body>
 <%
+request.setCharacterEncoding("UTF-8");
+response.setCharacterEncoding("UTF-8");
+response.setContentType("text/html;charset=UTF-8");
 MemberVO vo = (MemberVO)session.getAttribute("member");
+
+TournamentDAO TourDao = new TournamentDAO();
+//TournamentVO TourVo= new TournamentVO();
+ArrayList<TournamentVO> TourList= TourDao.showHotTournament();
+
 %>
     <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -151,22 +162,23 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
             <div class="row">
 
                 <!-- Single Event Area -->
+                <%for (int i=0; i<TourList.size(); i++) {%>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-event-area mb-30">
                         <div class="event-thumbnail">
-                            <img src="img/bg-img/e1.jpg" alt="">
+                            <img src="<%=TourList.get(i).getThumbnail() %>" alt="">
                         </div>
                         <div class="event-text">
-                            <h4>남자배우 월드컵</h4>
+                            <h4><%=TourList.get(i).getTournamentName() %></h4>
                             <div class="event-meta-data">
-                                <a href="#" class="event-place"></a>
                                 
                             </div>
-                            <a href="#" class="btn see-more-btn">Game start</a>
+                            <a href="gamePlay.jsp?data=<%=TourList.get(i).getTournamentId() %>" class="btn see-more-btn">Game start</a>
+                            
                         </div>
                     </div>
                 </div>
-
+				<%} %>
                 <!-- Single Event Area -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-event-area mb-30">

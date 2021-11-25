@@ -325,7 +325,7 @@ padding-left:0px !important;}
                     <div class="albums-slideshow owl-carousel">
                        <!-- List 1 -->
                        <%for (int i=0; i<TourList.size();i++){ %>
-                        <div class="single-album" onClick="location.href='gamePlay.jsp?content_id=<%=TourList.get(i).getTournamentId()%>'">
+                        <div class="single-album" onClick="location.href='gamePlay.jsp?data=<%=TourList.get(i).getTournamentId()%>'">
                         	<div class="single-album-container">
                         		<div class="img-center">
                            	 		<img src="<%=TourList.get(i).getThumbnail() %>" alt="">
@@ -387,7 +387,7 @@ padding-left:0px !important;}
                         <%for(int i = 1; i<ReviewList.size();i++) {%>
                         <div class="panel single-accordion">
                             <h6>
-                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo"><%=ReviewList.get(0).getMemberId() %>
+                                <a role="button" class="collapsed" aria-expanded="true" aria-controls="collapseTwo" data-parent="#accordion" data-toggle="collapse" href="#collapseTwo"><%=ReviewList.get(i).getMemberId() %>
                                         <span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                         <span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
                                         </a>
