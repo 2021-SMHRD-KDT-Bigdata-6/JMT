@@ -4,13 +4,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+
+
+
+
 public class ContentDAO {
 
 	Z_jdbc j = new Z_jdbc();
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
-	// 1.검색 조건에 맞는 모든 콘텐츠 기본 정보 보기
+	// 1.寃��깋 議곌굔�뿉 留욌뒗 紐⑤뱺 肄섑뀗痢� 湲곕낯 �젙蹂� 蹂닿린
 	// content_id, title, c_thumbnail, c_like, tournament_point
 	public ArrayList<ContentVO> showContentsByFilters(String where) {
 		j.conn();
@@ -44,7 +48,7 @@ public class ContentDAO {
 		return ContentList;
 	}
 
-	// 2.최근 한달 내 작품 보기
+	// 2.理쒓렐 �븳�떖 �궡 �옉�뭹 蹂닿린
 	// content_id, title, c_thumbnail, c_like, tournament_point
 	public ArrayList<ContentVO> showLatestContents() {
 		j.conn();
@@ -76,7 +80,7 @@ public class ContentDAO {
 		return ContentList;
 	}
 
-	// 3.인기 작품(클릭 수 높은) 36개 보기
+	// 3.�씤湲� �옉�뭹(�겢由� �닔 �넂��) 36媛� 蹂닿린
 	// content_id, title, c_thumbnail, c_like, tournament_point
 	public ArrayList<ContentVO> showHotContents() {
 		j.conn();
@@ -110,7 +114,7 @@ public class ContentDAO {
 		return ContentList;
 	}
 	
-	//4.작품 상세보기 
+	//4.�옉�뭹 �긽�꽭蹂닿린 
 	public ContentVO showContentInfo(int content_id) {
 		
 		j.conn();
@@ -138,7 +142,7 @@ public class ContentDAO {
 	}
 	
 	
-	//5.랜덤토너먼트 만들기(DB저장)
+	//5.�옖�뜡�넗�꼫癒쇳듃 留뚮뱾湲�(DB���옣)
 	public ArrayList<ContentVO> createRanTour(String tournament_name, String member_id) {
 		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
 		ContentVO vo = null;
@@ -182,7 +186,7 @@ public class ContentDAO {
 						isRight=1;
 					}
 				
-				System.out.println("jo는"+jo+" ,isRight="+isRight);
+				System.out.println("jo�뒗"+jo+" ,isRight="+isRight);
 				
 				
 				String sql2 = "insert into tour_contents values ((select max(tournament_id) from tournaments), 16, ?, ?, ?, ?)";
@@ -234,7 +238,7 @@ public class ContentDAO {
 	}
 	
 	
-	//6. 랜덤토너먼트 즐기기(DB저장X)
+	//6. �옖�뜡�넗�꼫癒쇳듃 利먭린湲�(DB���옣X)
 	
 	
 	
@@ -261,6 +265,104 @@ public class ContentDAO {
 		return al;
 	}
 	
+	public ArrayList<ContentVO> showImg(int rowNum) {
+		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
+		try {
+			j.conn();
+			String sql = "select * from (select rownum as num, content_id, title, platform, c_thumbnail, genre from contents) where num between ? and ?";
+			psmt = j.conn.prepareStatement(sql);
+			psmt.setInt(1, rowNum);
+			psmt.setInt(2, rowNum+17);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				int content_id = rs.getInt("content_id");
+				String title = rs.getString("title");
+				String platform = rs.getString("platform");
+				String poster = rs.getString("c_thumbnail");
+				String genre = rs.getString("genre");
+
+				ContentVO vo = new ContentVO(content_id, title, platform, poster,genre);
+
+				al.add(vo);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			j.close();
+		}
+
+		return al;
+	}
+
+	public ArrayList<ContentVO> imgShow(){
+		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
+		try {
+			j.conn();
+			String sql = "select content_id, title, nvl(platform, 'Cinema') platform, c_thumbnail, genre from contents where rownum<=18";
+			psmt = j.conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				int content_id = rs.getInt("content_id");
+				String title = rs.getString("title");
+				String platform = rs.getString("platform");
+				String poster = rs.getString("c_thumbnail");
+				String genre = rs.getString("genre");
+
+				ContentVO vo = new ContentVO(content_id, title, platform, poster,genre);
+
+				al.add(vo);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			j.close();
+		}
+		
+		return al;
+	}
 	
-	
+	public ArrayList<ContentVO> showContentsByTitleOrTag(String searchWord) {
+	      j.conn();
+	      ContentVO vo = null;
+	      ArrayList<ContentVO> ContentList = new ArrayList<ContentVO>();
+	      try {
+	         String sql = null;
+	         if(searchWord.startsWith("#")) {
+	            sql = "select content_id, title, c_thumbnail from Contents where tag like ?";
+	            psmt = j.conn.prepareStatement(sql);
+	            psmt.setString(1, "%"+searchWord+"%");
+	         } else {
+	            sql = "select content_id, title, c_thumbnail from Contents where title like ? or genre like ? or director like ? or actor like ?";
+	            psmt = j.conn.prepareStatement(sql);
+	            psmt.setString(1, "%"+searchWord+"%");
+	            psmt.setString(2, "%"+searchWord+"%");
+	            psmt.setString(3, "%"+searchWord+"%");
+	            psmt.setString(4, "%"+searchWord+"%");
+
+	            rs = psmt.executeQuery();
+
+	            while (rs.next()) {
+	               vo = new ContentVO();
+	               vo.setContent_id(rs.getInt(1));
+	               vo.setTitle(rs.getString(2));
+	               vo.setC_thumbnail(rs.getString(3));
+
+	               ContentList.add(vo);
+	            }
+	         }
+
+
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         j.close();
+	      }
+
+	      return ContentList;
+	   }
+
+	   
 }

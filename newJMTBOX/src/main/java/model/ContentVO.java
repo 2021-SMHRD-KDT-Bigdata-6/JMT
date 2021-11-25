@@ -55,6 +55,14 @@ public class ContentVO {
 		this.story = story;
 	}
 
+	public ContentVO(int content_id, String title, String platform, String c_thumbnail, String genre) {
+		this.content_id=content_id;
+		this.title=title;
+		this.platform=platform;
+		this.c_thumbnail=c_thumbnail;
+		this.genre = genre;
+	}
+
 	public int getContent_id() {
 		return content_id;
 	}

@@ -11,7 +11,7 @@ public class MemberDAO {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
-	// 회원가입
+	// �쉶�썝媛��엯
 	public MemberVO join(String id, String pw, String nick) {
 		MemberVO vo=null;
 		j.conn();
@@ -24,7 +24,7 @@ public class MemberDAO {
 			psmt.setString(3, nick);
 
 			int cnt = psmt.executeUpdate();
-			//로그인
+			//濡쒓렇�씤
 			if(cnt>0) {
 				vo = login(id, pw);
 			}
@@ -37,7 +37,7 @@ public class MemberDAO {
 		return vo;
 	}
 
-	// 로그인
+	// 濡쒓렇�씤
 		public MemberVO login(String id, String pw) {
 			j.conn();
 			MemberVO vo = null;
@@ -64,10 +64,10 @@ public class MemberDAO {
 			return vo;
 		}
 		
-	// 아이디중복체크
+	// �븘�씠�뵒以묐났泥댄겕
 	public int checkId(String id) {
 		j.conn();
-		int idCheck = 0; // 매개변수
+		int idCheck = 0; // 留ㅺ컻蹂��닔
 		try {
 			String sql = "select * from members where member_id = ?";
 			psmt = j.conn.prepareStatement(sql);
@@ -88,7 +88,7 @@ public class MemberDAO {
 		return idCheck;
 	}
 
-	// 닉네임중복체크
+	// �땳�꽕�엫以묐났泥댄겕
 	public int checkNick(String nick) {
 		j.conn();
 		int nickCheck = 0;
@@ -116,7 +116,7 @@ public class MemberDAO {
 
 	
 
-	// 비밀번호 확인
+	// 鍮꾨�踰덊샇 �솗�씤
 	public int checkPw(String id, String pw) {
 		j.conn();
 		int result=0;
@@ -140,7 +140,7 @@ public class MemberDAO {
 		return result;
 	}
 	
-	// 회원정보수정기능-pw
+	// �쉶�썝�젙蹂댁닔�젙湲곕뒫-pw
 	public int updatePw(String id, String newPw) {
 		j.conn();
 		int cnt = 0;
@@ -154,7 +154,7 @@ public class MemberDAO {
 			cnt = psmt.executeUpdate();
 
 		} catch (SQLException e) {
-			System.out.println("수정실패");
+			System.out.println("�닔�젙�떎�뙣");
 			e.printStackTrace();
 
 		} finally {
@@ -163,7 +163,7 @@ public class MemberDAO {
 		return cnt;
 
 	}
-	//회원정보수정기능-nickName
+	//�쉶�썝�젙蹂댁닔�젙湲곕뒫-nickName
 	public MemberVO updateNick(String id, String newNickName, Date join_date) {
 		j.conn();
 		MemberVO vo = null;
@@ -183,7 +183,7 @@ public class MemberDAO {
 			}
 
 		} catch (SQLException e) {
-			System.out.println("수정실패");
+			System.out.println("�닔�젙�떎�뙣");
 			e.printStackTrace();
 
 		} finally {
@@ -191,6 +191,27 @@ public class MemberDAO {
 		}
 		return vo;
 
+	}
+	
+	public int RegisterService(String id, String pw, String nick) {
+		int cnt = 0;
+		try {
+			j.conn();
+			String sql = "insert into members values(?,?,?,sysdate)";
+			psmt = j.conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			psmt.setString(3, nick);
+
+			cnt = psmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			j.close();
+		}
+		System.out.println("dao임무완수");
+		return cnt;
 	}
 
 }

@@ -15,8 +15,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import Content.ContentVO;
-import Member.MemberDAO;
+import model.ContentDAO;
+import model.ContentVO;
+import model.MemberDAO;
+
+
 
 
 @WebServlet("/moreService")
@@ -35,7 +38,7 @@ public class moreService extends HttpServlet {
 		JsonArray result = new JsonArray();
 		
 		ArrayList<ContentVO> al = new ArrayList<ContentVO>();
-		MemberDAO dao = new MemberDAO();
+		ContentDAO dao = new ContentDAO();
 		al = dao.showImg(rowNum);
 		
 		PrintWriter out = response.getWriter();
