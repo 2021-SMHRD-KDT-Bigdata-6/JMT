@@ -9,8 +9,8 @@
             $(this).remove();
         });
     });
-
-    // :: 2.0 Nav Active Code
+    
+// :: 2.0 Nav Active Code
     if ($.fn.classyNav) {
         $('#oneMusicNav').classyNav();
     }
@@ -97,29 +97,8 @@
             }
         });
     }
-
-    // :: 4.0 Masonary Gallery Active Code
-    if ($.fn.imagesLoaded) {
-        $('.oneMusic-albums').imagesLoaded(function () {
-            // filter items on button click
-            $('.catagory-menu').on('click', 'a', function () {
-                var filterValue = $(this).attr('data-filter');
-                $grid.isotope({
-                    filter: filterValue
-                });
-            });
-            // init Isotope
-            var $grid = $('.oneMusic-albums').isotope({
-                itemSelector: '.single-album-item',
-                percentPosition: true,
-                masonry: {
-                    columnWidth: '.single-album-item'
-                }
-            });
-        });
-    }
-
-    // :: 5.0 Video Active Code
+    
+	// :: 5.0 Video Active Code
     if ($.fn.magnificPopup) {
         $('.video--play--btn').magnificPopup({
             disableOn: 0,

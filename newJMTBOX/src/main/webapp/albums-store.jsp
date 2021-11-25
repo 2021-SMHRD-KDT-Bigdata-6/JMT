@@ -1,5 +1,6 @@
-<%@page import="Member.MemberDAO"%>
-<%@page import="Content.ContentVO"%>
+
+<%@page import="model.ContentDAO"%>
+<%@page import="model.ContentVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
@@ -53,7 +54,9 @@
 		text-algin:center;
 		font-size:30px;
 		}
-		
+		.oneMusic-albums{
+		position: ;
+		}
 		
 	</style>
 </head>
@@ -61,7 +64,7 @@
 <body class="dark-theme || light-theme">
 	<% ArrayList<ContentVO> al = new ArrayList<ContentVO>();
 	  System.out.println(al);
-	  MemberDAO dao = new MemberDAO();
+	  ContentDAO dao = new ContentDAO();
 	  al = dao.imgShow();
 	 %>   
 	 <!-- Preloader -->
@@ -193,7 +196,7 @@
             <div id="parent" class="row oneMusic-albums">
             	<%for(ContentVO mvo : al){ %>
             	<div class='col-12 col-sm-4 col-md-3 col-lg-2 single-album-item <%=mvo.getPlatform()%>'>
-            		<div class='single-album'><img src='<%=mvo.c_thumbnail %>' alt=''>
+            		<div class='single-album'><img src='<%=mvo.getC_thumbnail()%>' alt=''>
             			<div class='album-info'>
             				<a href='#'>
             					<h5><%=mvo.getTitle() %></h5>
@@ -228,13 +231,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     <div class="footer-nav">
                         <ul>
                             <li><a href="index.jsp">Home</a></li>
-                            <li><a href="album-store.html">Albums</a></li>
+                            <li><a href="album-store.jsp">Albums</a></li>
                             <li><a href="event.html">Events</a></li>
                             <li><a href="blog.html">News</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
-                </div>
+                </div >
             </div>
         </div>
     </footer>
@@ -251,10 +254,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
-    <!-- dark&white-->
     <script type="text/javascript">
    		let rowNum=19;
-   		let j = 100
+   		
    		$('#more').on('click',function(){
     		console.log(rowNum);
     		$.ajax({
