@@ -27,9 +27,11 @@ public class InitialGameInfo extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
+		
 		PrintWriter out = response.getWriter();
 		Gson gs = new Gson();
 		JsonArray jsArr = new JsonArray();
+		
 		int tournament_id = Integer.parseInt(request.getParameter("data"));
 		
 		TournamentDAO dao = new TournamentDAO();
@@ -38,8 +40,7 @@ public class InitialGameInfo extends HttpServlet {
 		for(int i =0; i<voArr.size();i++) {
 			jsArr.add(gs.toJson(voArr.get(i)));
 		}
-		System.out.println("요청이 들어옴");
-		System.out.println(voArr.get(0).getContent_id());
+		
 		out.print(jsArr);
 		
 

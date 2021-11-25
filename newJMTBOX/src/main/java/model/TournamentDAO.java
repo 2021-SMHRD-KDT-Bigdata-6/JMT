@@ -67,4 +67,34 @@ public class TournamentDAO {
 		return initialGameInfoList;
 	}
 	
+	
+	// 3. 해당 작품이 출전한 토너먼트 게임 보기
+	public ArrayList<TournamentVO> showThisContentTournament(int content_id){
+		j.conn();
+		ArrayList<TournamentVO> thisTourList= new ArrayList<TournamentVO>();
+		TournamentVO vo = null;
+		
+		try {
+			sql = "select tournament_id, tournament_name, thumbnail from tournaments where tournament_id in (select DISTINCT(tournament_id) from tour_contents where content_id = ?)";
+			psmt = j.conn.prepareStatement(sql);
+			psmt.setInt(1, content_id);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				vo = new TournamentVO(rs.getInt(1),rs.getString(2),rs.getString(3));
+				thisTourList.add(vo);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			j.close();
+		}
+		
+		
+		return thisTourList;
+	}
+	
+	
 }

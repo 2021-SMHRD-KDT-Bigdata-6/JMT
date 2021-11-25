@@ -23,6 +23,7 @@ public class EnjoyRantournament extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=utf-8");
 		
 		//프린트아웃을 이용해 서버페이지에 출력을 해야 ajax 데이터를 받아올 수 있다.

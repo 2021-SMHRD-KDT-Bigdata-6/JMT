@@ -90,7 +90,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                     <li><a href="main.jsp">Home</a></li>
                                     <li><a href="#">Game</a>
                                    		<ul class="dropdown">
-                                        	<li><a href="game.jsp">All game</a></li>
+                                        	<li><a href="gameAll.jsp">All game</a></li>
                                             <li><a href="gameRanPlay.jsp">Random game</a></li>
                                             <li><a href="gameMake.jsp">Make game</a></li>
                                     	</ul>
@@ -221,8 +221,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 						<%
 						for (TournamentVO i : hotTourList) {
 						%>
-						<div class="single-album"
-							onClick="location.href='movieDetail.jsp'">
+						<div class="single-album" onClick="location.href='movieDetail.jsp'">
 							<div class="single-album-container">
 								<div class="img-center">
 									<a href="gamePlay.jsp?data=<%=i.getTournamentId()%>"> 

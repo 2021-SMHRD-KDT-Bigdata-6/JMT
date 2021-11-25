@@ -66,7 +66,7 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
                                     <li><a href="main.jsp">Home</a></li>
                                     <li><a href="#">Game</a>
                                    		<ul class="dropdown">
-                                        	<li><a href="gameAll.jsp">All game</a></li>
+                                        	<li><a href="game.jsp">All game</a></li>
                                             <li><a href="gameRanPlay.jsp">Random game</a></li>
                                             <li><a href="gameMake.jsp">Make game</a></li>
                                     	</ul>
@@ -140,23 +140,30 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
     <script src="js/active.js"></script>
     <script>
 
-    <%String tournament_id = request.getParameter("data");%>
+	<%String tournament_id = request.getParameter("data");%>
 	let t_id = "<%=tournament_id%>";
-	
-    (function() {
-  	  $.ajax({
-  		  url : 'InitialGameInfo',
-  		  data : {'data' : t_id},
-  		  dataType : 'json',
-  		  success : function(result){
-  			 lezhin.start(result);
-  		  }, 
-  		  error : function(){
-  			  alert('실패!')
-  		  }
-  	  })
-    })()
-    
+	infoArr=[];
+	(function(){
+		console.log('함수 실행됨')
+		$.ajax({
+			url : 'InitialGameInfo',
+			data : {'data' : t_id},
+			dataType : 'json',
+			success : function(jsArr){
+				console.log('성공')
+				
+				for(let i = 0; i < jsArr.length; i++){
+					infoArr.push(JSON.parse(jsArr[i]));
+				}
+				
+				alert(infoArr[0].stage);
+			},
+			error : function(){
+				console.log('error')
+			} 
+			
+		})
+		})()
 		
 
      
