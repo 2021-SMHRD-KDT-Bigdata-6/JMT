@@ -66,12 +66,12 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
                                     <li><a href="main.jsp">Home</a></li>
                                     <li><a href="#">Game</a>
                                    		<ul class="dropdown">
-                                        	<li><a href="game.jsp">All game</a></li>
+                                        	<li><a href="gameAll.jsp">All game</a></li>
                                             <li><a href="gameRanPlay.jsp">Random game</a></li>
                                             <li><a href="gameMake.jsp">Make game</a></li>
                                     	</ul>
                                    	</li>
-                                    <li><a href="contentInfo.jsp">Search</a></li>
+                                    <li><a href="albums-store.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
                                     <%} %>
@@ -85,9 +85,10 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
 	                                    <%
 	                                    if (vo == null) {
 	                                    %>
-	                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
+	                                        <a href="login.jsp" id="loginBtn">Login / </a> 
+                                        <a href="Register.jsp" id="loginBtn">Register</a>
 	                                        <%}else{%>
-	                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+	                                        <a href="Logout.jsp" id="logoutBtn">Logout</a>
 	                                        <% } %>
 	                                    </div>
 
@@ -125,8 +126,8 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
    	<div class="content-default" id="content">
   
    	</div>
-   		 <footer class="footer soff" id="footer">
-	    </footer>
+   	
+   		 
 	 <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>

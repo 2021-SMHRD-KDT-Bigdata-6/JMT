@@ -11,7 +11,7 @@ public class MemberDAO {
 	private PreparedStatement psmt;
 	private ResultSet rs;
 
-	// �쉶�썝媛��엯
+	// 
 	public MemberVO join(String id, String pw, String nick) {
 		MemberVO vo=null;
 		j.conn();
@@ -24,7 +24,7 @@ public class MemberDAO {
 			psmt.setString(3, nick);
 
 			int cnt = psmt.executeUpdate();
-			//濡쒓렇�씤
+			//
 			if(cnt>0) {
 				vo = login(id, pw);
 			}
@@ -37,7 +37,7 @@ public class MemberDAO {
 		return vo;
 	}
 
-	// 濡쒓렇�씤
+	// 
 		public MemberVO login(String id, String pw) {
 			j.conn();
 			MemberVO vo = null;
@@ -64,10 +64,10 @@ public class MemberDAO {
 			return vo;
 		}
 		
-	// �븘�씠�뵒以묐났泥댄겕
+	// 
 	public int checkId(String id) {
 		j.conn();
-		int idCheck = 0; // 留ㅺ컻蹂��닔
+		int idCheck = 0; // 
 		try {
 			String sql = "select * from members where member_id = ?";
 			psmt = j.conn.prepareStatement(sql);
@@ -88,7 +88,7 @@ public class MemberDAO {
 		return idCheck;
 	}
 
-	// �땳�꽕�엫以묐났泥댄겕
+	// 
 	public int checkNick(String nick) {
 		j.conn();
 		int nickCheck = 0;
@@ -116,7 +116,7 @@ public class MemberDAO {
 
 	
 
-	// 鍮꾨�踰덊샇 �솗�씤
+	// 
 	public int checkPw(String id, String pw) {
 		j.conn();
 		int result=0;
@@ -140,7 +140,7 @@ public class MemberDAO {
 		return result;
 	}
 	
-	// �쉶�썝�젙蹂댁닔�젙湲곕뒫-pw
+	// -pw
 	public int updatePw(String id, String newPw) {
 		j.conn();
 		int cnt = 0;
@@ -163,7 +163,7 @@ public class MemberDAO {
 		return cnt;
 
 	}
-	//�쉶�썝�젙蹂댁닔�젙湲곕뒫-nickName
+	//-nickName
 	public MemberVO updateNick(String id, String newNickName, Date join_date) {
 		j.conn();
 		MemberVO vo = null;

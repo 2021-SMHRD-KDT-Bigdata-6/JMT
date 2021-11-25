@@ -77,7 +77,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="main.jsp.html" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
+                        <a href="main.jsp" class="nav-brand"><img src="img/bg-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -96,8 +96,14 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                             <div class="classynav">
                                 <ul>
                                     <li><a href="main.jsp">Home</a></li>
-                                    <li><a href="tournament.jsp">Game</a></li>
-                                    <li><a href="search.jsp">Search</a></li>
+                                    <li><a href="#">Game</a>
+                                   		<ul class="dropdown">
+                                        	<li><a href="gameAll.jsp">All game</a></li>
+                                            <li><a href="gameRanPlay.jsp">Random game</a></li>
+                                            <li><a href="gameMake.jsp">Make game</a></li>
+                                    	</ul>
+                                   	</li>
+                                    <li><a href="albums-store.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
                                     <%} %>
@@ -109,9 +115,10 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                     
                                     <div class="login-register-btn mr-50">
                                     <%if(vo==null){ %>
-                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
+                                        <a href="login.jsp" id="loginBtn">Login / </a> 
+                                        <a href="Register.jsp" id="loginBtn">Register</a>
                                         <%}else{%>
-                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+                                        <a href="Logout" id="logoutBtn">Logout</a>
                                         <% } %>
                                     </div>
 
@@ -250,17 +257,16 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><img src="img/bg-img/logo.png" alt=""></a>
+                    <a href="main.jsp"><img src="img/bg-img/logo.png" alt=""></a>
 
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="footer-nav">
                         <ul>
-                            <li><a href="Main.jsp">Home</a></li>
-                            <li><a href="tournament.jsp">Games</a></li>
-                            <li><a href="ContentInfo.jsp">Search</a></li>
-                            <li><a href="Mypage.jsp">My</a></li>
+                            <li><a href="main.jsp">Home</a></li>
+                            <li><a href="gameAll.jsp">Games</a></li>
+                            <li><a href="albums-store.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div>

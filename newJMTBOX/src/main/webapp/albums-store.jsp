@@ -1,4 +1,6 @@
 
+<%@page import="model.MemberVO"%>
+<%@page import="model.MemberDAO"%>
 <%@page import="model.ContentDAO"%>
 <%@page import="model.ContentVO"%>
 <%@page import="java.util.ArrayList"%>
@@ -62,10 +64,16 @@
 </head>
 
 <body class="dark-theme || light-theme">
-	<% ArrayList<ContentVO> al = new ArrayList<ContentVO>();
+	<% 
+	request.setCharacterEncoding("UTF-8");
+	response.setCharacterEncoding("UTF-8");
+	response.setContentType("text/html;charset=UTF-8");
+	MemberVO vo = (MemberVO)session.getAttribute("member");
+	ArrayList<ContentVO> al = new ArrayList<ContentVO>();
 	  System.out.println(al);
 	  ContentDAO dao = new ContentDAO();
 	  al = dao.imgShow();
+	 
 	 %>   
 	 <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
@@ -87,7 +95,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.jsp" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="main.jsp" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -105,47 +113,30 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.jsp">Home</a></li>
-                                    <li><a href="albums-store.html">Albums</a></li>
-                                    <li><a href="#">Pages</a>
+                                    <li><a href="main.jsp">Home</a></li>
+                                    <li><a href="#">Game</a>
                                         <ul class="dropdown">
-                                            <li><a href="index.jsp">Home</a></li>
-                                            <li><a href="albums-store.html">Albums</a></li>
-                                            <li><a href="event.html">Events</a></li>
-                                            <li><a href="blog.html">News</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                            <li><a href="elements.html">Elements</a></li>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="#">Dropdown</a>
-                                                <ul class="dropdown">
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                    <li><a href="#">Even Dropdown</a>
-                                                        <ul class="dropdown">
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                            <li><a href="#">Deeply Dropdown</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="#">Even Dropdown</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="gameAll.jsp">All game</a></li>
+                                            <li><a href="gameRanPlay.jsp">Random game</a></li>
+                                            <li><a href="gameMake.jsp">Make game</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="event.html">Events</a></li>
-                                    <li><a href="blog.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="albums-store.jsp">Search</a></li>
+                                    <%if(vo!=null){ %>
+                                    <li><a href="myPages/myPage.jsp">My</a></li>
+                                    <%} %>
                                 </ul>
 
                                 <!-- Login/Register & Cart Button -->
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
+                                    <%if(vo==null){ %>
                                         <a href="login.html" id="loginBtn">Login / </a> 
                                         <a href="Register.jsp" id="loginBtn">Register</a>
+                                        <%}else{ %>
+                                        <a href="Logout" id="logoutBtn">Logout</a>
+                                        <%} %>
                                     </div>
 
                                     <!-- Cart Button -->
@@ -222,19 +213,15 @@
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
                     <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="footer-nav">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="album-store.jsp">Albums</a></li>
-                            <li><a href="event.html">Events</a></li>
-                            <li><a href="blog.html">News</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="main.jsp">Home</a></li>
+                            <li><a href="gameAll.jsp">Games</a></li>
+                            <li><a href="albums-store.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div >

@@ -207,9 +207,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Active js -->
     <script src="js/active.js"></script>
     <!-- id, nick Check -->
-    <script src="js/register/check.js">
+    <script src="js/register/check.js"></script>
     <script type="text/javascript">
-    
+  
     </script>
 </body>
 

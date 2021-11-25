@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.MemberDAO;
 
-@WebServlet("/CheckId.do")
+@WebServlet("/CheckId")
 public class CheckId extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -26,13 +26,13 @@ public class CheckId extends HttpServlet {
 		MemberDAO dao = new MemberDAO();
 		
 		int idCheck = dao.checkId(exampleInputEmail1);
-		/*
+		
 		if(idCheck == 0) {
 			System.out.println("이미존재하는아이디");
 		}else if (idCheck==1) {
 			System.out.println("사용가능한아이디");
 		}
-		*/
+		
 		out.print(idCheck+""); // ajax결과값이 result가 되고 String값으로 보내기위해 ""를 넣어준다
 	}
 

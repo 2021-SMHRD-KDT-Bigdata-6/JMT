@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import model.MemberDAO;
 import model.MemberVO;
 
-@WebServlet("/Login.do")
+@WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

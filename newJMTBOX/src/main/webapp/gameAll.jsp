@@ -100,11 +100,12 @@ ArrayList<TournamentVO> TourList= TourDao.showHotTournament();
                                     <li><a href="main.jsp">Home</a></li>
                                     <li><a href="#">Game</a>
                                     		<ul class="dropdown">
-                                            <li><a href="tournament.jsp">Start game</a></li>
-                                            <li><a href=".jsp">Make game</a></li>
+                                            <li><a href="gameAll.jsp">All game</a></li>
+                                            <li><a href="gameRanPlay.jsp">Random game</a></li>
+                                            <li><a href="gameMake.jsp">Make game</a></li>
                                     </ul>
                                   </li>
-                                    <li><a href="contentInfo.jsp">Search</a></li>
+                                    <li><a href="albums-store.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
                                     <%} %>
@@ -116,9 +117,10 @@ ArrayList<TournamentVO> TourList= TourDao.showHotTournament();
                                     
                                     <div class="login-register-btn mr-50">
                                     <%if(vo==null){ %>
-                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
+                                        <a href="login.jsp" id="loginBtn">Login / </a> 
+                                        <a href="Register.jsp" id="loginBtn">Register</a>
                                         <%}else{%>
-                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+                                        <a href="Logout" id="logoutBtn">Logout</a>
                                         <% } %>
                                     </div>
 
@@ -278,7 +280,7 @@ ArrayList<TournamentVO> TourList= TourDao.showHotTournament();
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><img src="img/bg-img/logo.png" alt=""></a>
+                    <a href="main.jsp"><img src="img/bg-img/logo.png" alt=""></a>
 
                 </div>
 
@@ -286,8 +288,8 @@ ArrayList<TournamentVO> TourList= TourDao.showHotTournament();
                     <div class="footer-nav">
                         <ul>
                            <li><a href="main.jsp">Home</a></li>
-                            <li><a href="tournament.jsp">Games</a></li>
-                            <li><a href="contentInfo.jsp">Search</a></li>
+                            <li><a href="gameAll.jsp">Games</a></li>
+                            <li><a href="albums-store.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div>

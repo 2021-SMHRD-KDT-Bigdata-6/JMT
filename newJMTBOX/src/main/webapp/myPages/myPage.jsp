@@ -95,7 +95,9 @@
 	                                    
 	                                    <div class="login-register-btn mr-50">
 	                                    <%if(vo==null){ %>
-	                                        <a href="../login.jsp" id="loginBtn">Login / Register</a>
+	                                        
+	                                        <a href="../login.jsp" id="loginBtn">Login / </a> 
+                                        	<a href="../Register.jsp" id="loginBtn">Register</a>
 	                                        <%}else{%>
 	                                        <a href="Logout.do" id="logoutBtn">Logout</a>
 	                                        <% } %>

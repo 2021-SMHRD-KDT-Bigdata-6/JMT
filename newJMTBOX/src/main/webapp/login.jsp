@@ -69,7 +69,7 @@
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
-                                        <a href="login.html" id="loginBtn">Login / </a> 
+                                        <a href="login.jsp" id="loginBtn">Login / </a> 
                                         <a href="Register.jsp" id="loginBtn">Register</a>
                                     </div>
 
@@ -105,7 +105,7 @@
                         <h3>Welcome Back</h3>
                         <!-- Login Form -->
                         <div class="login-form">
-                            <form action="Login.do" method="post">
+                            <form action="Login" method="post">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail" name="id">
@@ -140,9 +140,9 @@
                             <li><a href="main.jsp">Home</a></li>
                              <li><a href="#">Game</a>
                                     		<ul class="dropdown">
-                                            <li><a href="tournament.jsp">All game</a></li>
-                                            <li><a href=".jsp">Random game</a></li>
-                                            <li><a href=".jsp">Make game</a></li>
+                                            <li><a href="gameAll.jsp">All game</a></li>
+                                            <li><a href="gameRanPlay.jsp">Random game</a></li>
+                                            <li><a href="gameMake.jsp">Make game</a></li>
                                     </ul>
                                   </li>
                             <li><a href="contentInfo.jsp">Search</a></li>

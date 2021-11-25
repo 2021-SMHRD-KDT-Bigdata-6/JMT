@@ -95,7 +95,7 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                             <li><a href="gameMake.jsp">Make game</a></li>
                                     	</ul>
                                    	</li>
-                                    <li><a href="contentInfo.jsp">Search</a></li>
+                                    <li><a href="albums-store.jsp">Search</a></li>
                                     <%if(vo!=null){ %>
                                     <li><a href="myPages/myPage.jsp">My</a></li>
                                     <%} %>
@@ -107,9 +107,10 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                                     
                                     <div class="login-register-btn mr-50">
                                     <%if(vo==null){ %>
-                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
+                                        <a href="login.jsp" id="loginBtn">Login / </a> 
+                                        <a href="Register.jsp" id="loginBtn">Register</a>
                                         <%}else{%>
-                                        <a href="Logout.do" id="logoutBtn">Logout</a>
+                                        <a href="Logout" id="logoutBtn">Logout</a>
                                         <% } %>
                                     </div>
 
@@ -178,11 +179,14 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
 			<form action="movieDetail.jsp">
 				<div class="search-box">
 					<!-- 검색 name값을 content_id로 잡아야하나?.. -->
-					<input class="search-input" type="text" placeholder="Search"
+					<a href="albums-store.jsp">
+					<input class="search-input" placeholder="Search"
 						name="search">
-					<button class="searchbtn" name = "click" onClick="location.href='movieDetail.jsp'">
+						<button class="searchbtn" name = "click">
 						<img class="btn-img" src="./img/bg-img/btn-img.png">
 					</button>
+						</a>
+					
 				</div>
 			</form>
 		</div>
@@ -394,8 +398,8 @@ MemberVO vo = (MemberVO)session.getAttribute("member");
                     <div class="footer-nav">
                         <ul>
                             <li><a href="main.jsp">Home</a></li>
-                            <li><a href="tournament.jsp">Games</a></li>
-                            <li><a href="contentInfo.jsp">Search</a></li>
+                            <li><a href="gameALl.jsp">Games</a></li>
+                            <li><a href="albums-store.jsp">Search</a></li>
                         </ul>
                     </div>
                 </div>

@@ -1,17 +1,16 @@
-	let email=0;
+ 	let email=0;
     let nick=0;
     let pw=0;   
     $('#exampleInputEmail1').focusout(function(){
-    		let result
 			let exampleInputEmail1 = $('#exampleInputEmail1').val()
 			$.ajax({
-				url : "IdCheckService",
+				url : "CheckId",
 				type : "post",
 				data : {"exampleInputEmail1":exampleInputEmail1},
 				dataType: "json",
-				async:false,
 				success : function(data){
 					result = data
+					console.log(result)
 					if(result == 0){
 						$('#emailHelp').css('color','red')
 						$('#emailHelp').text('이미 존재하는 아이디 입니다.')
@@ -26,15 +25,13 @@
 					console.log('서버요청실패')
 				}
 			})
-			return result
 		})
 	
 		//닉네임 중복체크
 	$('#exampleInputNick1').focusout(function(){
-		let result2;
 		let exampleInputNick1 = $('#exampleInputNick1').val()
 		$.ajax({
-			url:"nickCheckService",
+			url:"CheckNick",
 			type : "post",
 			data : {"exampleInputNick1":exampleInputNick1},
 			dataType : "json",
@@ -81,4 +78,3 @@
     	}
     	
     });
-    
