@@ -137,8 +137,8 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
     	  $.ajax({
     		  url : 'EnjoyRantournament',
     		 // data : {"tournament_name" : "명작랜덤", "member_id" : m_id },
+    		 
     		  dataType : 'json',
-    		  
     		  success : function(result){
     			 lezhin.start(result);
     		  }, 
