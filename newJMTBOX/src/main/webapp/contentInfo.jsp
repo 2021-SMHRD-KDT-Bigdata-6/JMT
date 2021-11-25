@@ -6,7 +6,7 @@
 <%@page import="model.ContentVO"%>
 <%@page import="model.ContentDAO"%>
 <%@page import="model.MemberVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -217,7 +217,8 @@ padding-left:0px !important;}
             <div class="oneMusic-buttons-area mb-30">
                         <a href="#" class="btn oneMusic-btn m-2">봤어요 ! </a>
                         <a href="#" class="btn oneMusic-btn m-2">찜하기 ♥ </a>
-                        <a href="#" class="btn oneMusic-btn m-2">좋아요 ! </a>
+                        
+                        <a href="#" id="btn-like"class="btn oneMusic-btn m-2"'>좋아요 !</a>
                 </div> 
            
     	</div>
@@ -442,6 +443,18 @@ padding-left:0px !important;}
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+    <script>
+    $(function(){
+    	
+    	
+		$("#btn-like").on("click",function(){
+			
+			if($(this).text()=='좋아요 !'){
+			$(this).text("좋아요 90");
+			} else $(this).text("좋아요 !");
+		});
+		
+	});</script>
 </body>
 
 </html>

@@ -139,7 +139,7 @@ section{
 				<div class="single-album">
 					<div class="single-album-container">
 						<div class="img-center">
-							<a href="../contentInfo.jsp?data=<%=i.getContent_id()%>"><img src="<%=i.getC_thumbnail() %>" alt=""></a>
+							<a href="../contentInfo.jsp?content_id=<%=i.getContent_id()%>"><img src="<%=i.getC_thumbnail() %>" alt=""></a>
 						</div>
 					</div>
 					<div class="album-info">
