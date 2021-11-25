@@ -127,7 +127,10 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
    	</div>
    		 <footer class="footer soff" id="footer">
 	    </footer>
-	 <!-- ##### All Javascript Script ##### -->
+    <!-- ##### All Javascript Script ##### -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="./js/lezhinGame.js" async defer></script>
+    
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
@@ -144,9 +147,12 @@ MemberVO vo = (MemberVO) session.getAttribute("member");
 	let t_id = "<%=tournament_id%>";
 	
     (function() {
+    	console.log(t_id);
   	  $.ajax({
+  		  
   		  url : 'InitialGameInfo',
   		  data : {'data' : t_id},
+  		  
   		  dataType : 'json',
   		  success : function(result){
   			 lezhin.start(result);

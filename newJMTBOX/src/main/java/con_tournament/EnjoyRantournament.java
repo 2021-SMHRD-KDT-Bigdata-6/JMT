@@ -29,10 +29,10 @@ public class EnjoyRantournament extends HttpServlet {
 		//프린트아웃을 이용해 서버페이지에 출력을 해야 ajax 데이터를 받아올 수 있다.
 		PrintWriter out = response.getWriter();
 		Gson gson = new Gson();
+		JsonArray result = new JsonArray();
 		
 		ContentDAO dao = new ContentDAO();
 		ArrayList<ContentVO> vor = dao.enjoyRanTour();
-		JsonArray result = new JsonArray();
 		for (int i = 0; i < vor.size(); i++) {
 			result.add(gson.toJson(vor.get(i)));
 		}

@@ -30,18 +30,19 @@ public class InitialGameInfo extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		Gson gs = new Gson();
-		JsonArray jsArr = new JsonArray();
+		JsonArray result = new JsonArray();
 		
 		int tournament_id = Integer.parseInt(request.getParameter("data"));
+		System.out.println(tournament_id);
 		
 		TournamentDAO dao = new TournamentDAO();
 		ArrayList<TournamentVO> voArr = dao.initialGameInfo(tournament_id);
 		
 		for(int i =0; i<voArr.size();i++) {
-			jsArr.add(gs.toJson(voArr.get(i)));
+			result.add(gs.toJson(voArr.get(i)));
 		}
 		
-		out.print(jsArr);
+		out.print(result);
 		
 
 		

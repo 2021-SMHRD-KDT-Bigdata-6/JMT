@@ -8,7 +8,7 @@ public class TournamentVO {
 	private int jo;
 	private int isright;
 	private int content_id;
-	private String tournamentFile;
+	private String c_thumbnail;
 	private String title;
 
 	private String tournamentName;
@@ -37,9 +37,14 @@ public class TournamentVO {
 		this.stage = stage;
 		this.jo = jo;
 		this.isright = isright;
-		this.tournamentFile = tournamentFile;
+		this.c_thumbnail = tournamentFile;
 	}
-
+	
+	//랜덤토너먼트의 contentVO와 똑같은 구조
+	
+	
+	
+	
 	public TournamentVO(int tournamentId, int stage, int jo, int isright, int content_id, String tournamentFile,
 			String title) {
 		super();
@@ -48,7 +53,7 @@ public class TournamentVO {
 		this.jo = jo;
 		this.isright = isright;
 		this.content_id = content_id;
-		this.tournamentFile = tournamentFile;
+		this.c_thumbnail = tournamentFile;
 		this.title = title;
 	}
 
@@ -92,12 +97,13 @@ public class TournamentVO {
 		this.content_id = content_id;
 	}
 
-	public String getTournamentFile() {
-		return tournamentFile;
+
+	public String getC_thumbnail() {
+		return c_thumbnail;
 	}
 
-	public void setTournamentFile(String tournamentFile) {
-		this.tournamentFile = tournamentFile;
+	public void setC_thumbnail(String c_thumbnail) {
+		this.c_thumbnail = c_thumbnail;
 	}
 
 	public String getTitle() {
